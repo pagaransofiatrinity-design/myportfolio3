@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Homepage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="tab-bar">
+        <div class="controls">
+            <span class="circle red"></span>
+            <span class="circle yellow"></span>
+            <span class="circle green"></span>
+        </div>
+        <p>New Tab</p>
+    </div>
+</header>
+
+<section class="welcome-box">
+    <h1>Welcome.</h1>
+    <h3>Sofia Trinity Pagaran</h3>
+    <p>What is our activity for today?</p>
+    <a href="#" class="read-more">Read More</a>
+</section>
+
+<section class="main-content">
+
+    <div class="art-liked card">
+        <p>User Has Liked<br>Your Art!</p> 
+		<a href="https://ph.pinterest.com/pin/703828248057530337/">
+        <img src="elgatooo.jpg" alt="cat drawing" height="80%" width="50%">
+		</a>
+    </div>
+
+    <div class="middle-art card"> 
+		<p>You received a text from "Sofie<3".</p> 
+		<a href="https://www.educaplay.com/types-of-activities/froggy-jumps.html">
+        <img src="Mini Doodle.jpg" alt="froggy" height="86%" width="50%">
+		</a>
+    </div>
+
+    <div class="recent-searches">
+        <h3>Recent Searches</h3>
+       <a href="personal_album.html"> <button>🔍 Personal</button></a>
+       <a href="Education_Album.html"> <button>🔍 Education</button></a>
+       <a href="collection_album.html"> <button>❤️ Collection</button></a>
+       <a href="family.html"> <button>▶️ Family</button></a>
+    </div>
+
+    <div class="photography card"> 
+		<p>Pinterest</p>
+		<a href="https://www.pinterest.com/search/pins/?q=art&rs=typed">
+        <img src="chucken.jpg" alt="camera" height="80%" width="50%"> 
+		</a>
+    </div>
+
+</section>
+
+<div class="view-more">
+    <button id="viewMoreBtn">View More</button>
+
+    <div id="extraButtons">
+        <a href="https://number.toys/"><button class="extra-btn">Sudoku</button><a/> 
+		
+        <a href="https://card.toys/"><button class="extra-btn">Solitare</button> <a/> 
+		
+        <a href="https://cruel.toys/maze/"><button class="extra-btn">Cruel Maze</button> <a/> 
+		
+        <button id="hideBtn">Hide It Back</button>
+    </div>
+</div>
+
+<footer>
+    <a href="#">Personal Website ⭐</a>
+</footer>
+<script>
+
+    const viewMoreBtn = document.getElementById("viewMoreBtn");
+    const hideBtn = document.getElementById("hideBtn");
+    const extraButtons = document.getElementById("extraButtons");
+
+    viewMoreBtn.addEventListener("click", function() {
+        extraButtons.classList.remove("hidden");
+        viewMoreBtn.style.display = "none";
+    });
+
+    hideBtn.addEventListener("click", function() {
+        extraButtons.classList.add("hidden");
+        viewMoreBtn.style.display = "block";
+    });
+	
+</script>
+
+</script>
+
+</body>
+</html>
