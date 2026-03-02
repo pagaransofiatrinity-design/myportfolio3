@@ -3,7 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Personal Homepage</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
+	<style> 
+	 .read-more-content {
+            display: none;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+        
+        .read-more-content.show {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+ 
+	</style>
 </head>
 <body>
 
@@ -105,4 +126,5 @@
 </body>
 
 </html>
+
 
