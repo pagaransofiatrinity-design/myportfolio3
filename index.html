@@ -98,7 +98,21 @@
         extraButtons.classList.add("hidden");
         viewMoreBtn.style.display = "block";
     });
-	
+
+	const readMoreBtn = document.getElementById("readMoreBtn");
+	const description = document.getElementById("description");
+
+	readMoreBtn.addEventListener("click", function(e) {
+    e.preventDefault(); // prevents page from jumping
+
+    if (description.classList.contains("hidden")) {
+        description.classList.remove("hidden");
+        readMoreBtn.textContent = "Go Back";
+    } else {
+        description.classList.add("hidden");
+        readMoreBtn.textContent = "Read More";
+    }
+	});
 </script>
 
 </script>
@@ -106,6 +120,7 @@
 </body>
 
 </html>
+
 
 
 
