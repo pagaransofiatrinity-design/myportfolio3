@@ -4,28 +4,7 @@
     <meta charset="UTF-8">
     <title>Personal Homepage</title>
     <link rel="stylesheet" href="style.css"> 
-	<style> 
-	 .read-more-content {
-            display: none;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            margin-top: 15px;
-            line-height: 1.6;
-        }
-        
-        .read-more-content.show {
-            display: block;
-            animation: fadeIn 0.5s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
- 
-	</style>
-</head>
+	
 <body>
 
 <header class="header">
@@ -43,14 +22,15 @@
     <h1>Welcome.</h1>
     <h3>Sofia Trinity Pagaran</h3>
     <p>What is our activity for today?</p>
-     <a href="#" class="read-more" id="readMoreBtn">Read More</a>
-    <div class="read-more-content" id="readMoreContent">
-        <p>Welcome to my personal homepage! Here you'll find a collection of my favorite art pieces, 
-        photography, and memories. Feel free to explore the different albums and discover what inspires me.</p>
-        <p>Today's activities include checking out new art submissions, reviewing recent searches, 
-        and maybe playing some relaxing games like Sudoku or Solitaire.</p>
-        <p>Enjoy your stay and feel free to reach out anytime!</p>
-    </div>
+
+    <!-- Hidden description -->
+    <p id="description" class="hidden">
+        This website is a collection of my favorite artworks, memories,
+        activities, and personal projects. Feel free to explore and
+        enjoy the experience!
+    </p>
+
+    <a href="#" class="read-more" id="readMoreBtn">Read More</a>
 </section>
 
 <section class="main-content">
@@ -126,5 +106,6 @@
 </body>
 
 </html>
+
 
 
