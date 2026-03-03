@@ -151,4 +151,8 @@ footer a {
 
 .extra-btn:hover {
     background: #ffc9f0;
+
+}
+.hidden {
+    display: none;
 }
