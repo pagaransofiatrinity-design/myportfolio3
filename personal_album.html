@@ -1,35 +1,103 @@
+```html
 <!DOCTYPE html>
 <html>
-<head><tittle>Collection album</tittle></head>
-<body style="background-color:rgb(119,164,247);">
-<blockquote><p style="color:black;font-family:Arial;">Welcome to my Family Album! I'm Sofia Trinity c. Pagaran and here are my old pictures of my family!<br></br> 
-<img src="personal/baby.jpg" width="20%" height="100%">
-<img src="family/Pic1.jpg" width="20%" height="20%">
-<img src="personal/m1.jpg" width="20%" height="20%">
-<img src="personal/m2.jpg" width="20%" height="20%">
-<img src="personal/m3.jpg" width="20%" height="20%">
-<img src="personal/m4.jpg" width="20%" height="20%">
-<img src="personal/m5.jpg" width="20%" height="20%">
-<img src="personal/m6.jpg" width="20%" height="20%"> 
-<img src="personal/m7.jpg" width="20%" height="20%">
-<img src="personal/m8.jpg" width="20%" height="20%"> 
-<img src="personal/m9.jpg" width="20%" height="100%">
-<img src="personal/m10.jpg" width="20%" height="20%">
-<img src="personal/m11.jpg" width="20%" height="20%">
-<img src="personal/m12.jpg" width="20%" height="20%">
-<img src="personal/me1.jpg" width="20%" height="20%">
-<img src="education\m1.jpg" width="20%" height="20%">
-<img src="education\m2.jpg" width="20%" height="20%">
-<img src="education\m3.jpg" width="20%" height="20%">
-<img src="education\m4.jpg" width="20%" height="20%">
-<img src="education\m5.jpg" width="20%" height="20%">
 
-<br>
-<a href="">Back to 1st page</a> <br>
+<head>
+<title>Collection Album</title>
+
+<style>
+
+body{
+    background-color: rgb(119,164,247);
+    font-family: Arial;
+    text-align: center;
+    margin:0;
+}
+
+h1{
+    margin-top:20px;
+}
+
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    padding:20px;
+}
+
+.photo{
+    background:white;
+    padding:10px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.photo img{
+    width:200px;
+    height:auto;
+    border-radius:8px;
+}
+
+/* Hover animation */
+.photo:hover{
+    transform:scale(1.08);
+    box-shadow:0 10px 20px rgba(0,0,0,0.5);
+}
+
+a{
+    display:block;
+    margin:10px;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Collection Album</h1>
+
+<p>
+Welcome to my Collection Album! I'm <b>Sofia Trinity C. Pagaran</b> and here are some personal photos and memories from different parts of my life.
+</p>
+
+<div class="gallery">
+
+<div class="photo"><img src="personal/baby.jpg"></div>
+<div class="photo"><img src="family/Pic1.jpg"></div>
+
+<div class="photo"><img src="personal/m1.jpg"></div>
+<div class="photo"><img src="personal/m2.jpg"></div>
+<div class="photo"><img src="personal/m3.jpg"></div>
+<div class="photo"><img src="personal/m4.jpg"></div>
+<div class="photo"><img src="personal/m5.jpg"></div>
+<div class="photo"><img src="personal/m6.jpg"></div>
+<div class="photo"><img src="personal/m7.jpg"></div>
+<div class="photo"><img src="personal/m8.jpg"></div>
+<div class="photo"><img src="personal/m9.jpg"></div>
+<div class="photo"><img src="personal/m10.jpg"></div>
+<div class="photo"><img src="personal/m11.jpg"></div>
+<div class="photo"><img src="personal/m12.jpg"></div>
+<div class="photo"><img src="personal/me1.jpg"></div>
+
+<div class="photo"><img src="education/m1.jpg"></div>
+<div class="photo"><img src="education/m2.jpg"></div>
+<div class="photo"><img src="education/m3.jpg"></div>
+<div class="photo"><img src="education/m4.jpg"></div>
+<div class="photo"><img src="education/m5.jpg"></div>
+
+</div>
+
+<a href="collection.html">Back to First Page</a>
 <a href="https://pagaransofiatrinity-design.github.io/myportfolio3/">Back to Homepage</a>
-</body>
 
+</body>
 </html>
+```
+
 
 
 
