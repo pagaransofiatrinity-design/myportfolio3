@@ -156,3 +156,21 @@ footer a {
 .hidden {
     display: none;
 }
+
+.logout-btn{
+    position:absolute;
+    right:20px;
+    top:10px;
+    padding:8px 16px;
+    border:none;
+    border-radius:8px;
+    background:#ff4d4d;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.logout-btn:hover{
+    background:#cc0000;
+}
