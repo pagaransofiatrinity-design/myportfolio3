@@ -1,22 +1,21 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.getElementById("loginForm").addEventListener("submit", function(e){
 
-    const form = document.getElementById("loginForm");
+    e.preventDefault(); // prevents page refresh
 
-    form.addEventListener("submit", function (e) {
-        e.preventDefault(); // Stop page refresh
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value.trim();
-		
-		console.log("Username:", username);
-        console.log("Password:", password);
+    if(username !== "" && password !== ""){
+        
+        document.body.innerHTML = `
+        <div style="display:flex;justify-content:center;align-items:center;height:100vh;font-family:Arial;">
+            <h2>Logging in...</h2>
+        </div>
+        `;
 
-        if (username === "UnknownSofie" && password === "SofieWasHere") {
-            window.location.href = "C:/Users/Linnaeus/Documents/PAGARAN_LINNAEUS/3RD%20QUARTER/Homepage.html"; // Redirect file
-        } else {
-            alert("Incorrect username or password");
-        }
+        setTimeout(function(){
+            window.location.href = "homepage.html";
+        },1500);
 
-    });
-
+    }
 });
