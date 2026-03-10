@@ -14,7 +14,10 @@
             <span class="circle yellow"></span>
             <span class="circle green"></span>
         </div>
+
         <p>New Tab</p>
+
+        <button id="logoutBtn" class="logout-btn">Sign Out</button>
     </div>
 </header>
 
@@ -89,6 +92,8 @@
     const hideBtn = document.getElementById("hideBtn");
     const extraButtons = document.getElementById("extraButtons");
 
+	const logoutBtn = document.getElementById("logoutBtn");
+
     viewMoreBtn.addEventListener("click", function() {
         extraButtons.classList.remove("hidden");
         viewMoreBtn.style.display = "none";
@@ -113,13 +118,38 @@
         readMoreBtn.textContent = "Read More";
     }
 	});
+	
+
+	logoutBtn.addEventListener("click", function(){
+
+    document.body.innerHTML = `
+    <div style="
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        font-family:Arial;
+        font-size:28px;
+        background:#77a4f7;
+        animation:fade 1s ease;
+    ">
+        Signing out...
+    </div>
+    `;
+
+    setTimeout(function(){
+        window.location.href = "login.html";
+    },2000);
+
+});
 </script>
 
-</script>
+
 
 </body>
 
 </html>
+
 
 
 
