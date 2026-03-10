@@ -1,27 +1,58 @@
+```html
 <!DOCTYPE html>
 <html>
+
 <head>
 <title>Education Album</title>
 
 <style>
+
 body{
     background-color: rgb(119,164,247);
     font-family: Arial;
     text-align: center;
+    margin:0;
 }
 
-.gallery img{
-    width: 20%;
-    margin: 5px;
-    border-radius: 8px;
+h1{
+    margin-top:20px;
+}
+
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    padding:20px;
+}
+
+.photo{
+    background:white;
+    padding:10px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.photo img{
+    width:200px;
+    height:auto;
+    border-radius:8px;
+}
+
+/* Hover animation */
+.photo:hover{
+    transform:scale(1.08);
+    box-shadow:0 10px 20px rgba(0,0,0,0.5);
 }
 
 a{
-    display: block;
-    margin-top: 10px;
+    display:block;
+    margin:10px;
+    font-weight:bold;
 }
-</style>
 
+</style>
 </head>
 
 <body>
@@ -34,29 +65,29 @@ Welcome to my Education Album! I'm <b>Sofia Trinity C. Pagaran</b> and here are 
 
 <div class="gallery">
 
-<img src="education/m1.jpg">
-<img src="education/m2.jpg">
-<img src="education/m3.jpg">
-<img src="education/m4.jpg">
-<img src="education/m5.jpg">
-<img src="education/m6.jpg">
-<img src="education/m7.jpg">
-<img src="education/m8.jpg">
-<img src="education/m9.jpg">
-<img src="education/m11.jpg">
-<img src="education/m12.jpg">
-<img src="education/m13.jpg">
-<img src="education/m14.jpg">
-<img src="education/m15.jpg">
+<div class="photo"><img src="education/m1.jpg"></div>
+<div class="photo"><img src="education/m2.jpg"></div>
+<div class="photo"><img src="education/m3.jpg"></div>
+<div class="photo"><img src="education/m4.jpg"></div>
+<div class="photo"><img src="education/m5.jpg"></div>
+<div class="photo"><img src="education/m6.jpg"></div>
+<div class="photo"><img src="education/m7.jpg"></div>
+<div class="photo"><img src="education/m8.jpg"></div>
+<div class="photo"><img src="education/m9.jpg"></div>
+<div class="photo"><img src="education/m11.jpg"></div>
+<div class="photo"><img src="education/m12.jpg"></div>
+<div class="photo"><img src="education/m13.jpg"></div>
+<div class="photo"><img src="education/m14.jpg"></div>
+<div class="photo"><img src="education/m15.jpg"></div>
 
 </div>
-
-<br>
 
 <a href="education.html">Back to First Page</a>
 <a href="https://pagaransofiatrinity-design.github.io/myportfolio3/">Back to Homepage</a>
 
 </body>
 </html>
+```
+
 
 
