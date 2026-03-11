@@ -1,103 +1,57 @@
-```html
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-<title>Collection Album</title>
-
-<style>
-
-body{
-    background-color: rgb(119,164,247);
-    font-family: Arial;
-    text-align: center;
-    margin:0;
-}
-
-h1{
-    margin-top:20px;
-}
-
-.gallery{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-    padding:20px;
-}
-
-.photo{
-    background:white;
-    padding:10px;
-    border-radius:12px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.photo img{
-    width:200px;
-    height:auto;
-    border-radius:8px;
-}
-
-/* Hover animation */
-.photo:hover{
-    transform:scale(1.08);
-    box-shadow:0 10px 20px rgba(0,0,0,0.5);
-}
-
-a{
-    display:block;
-    margin:10px;
-    font-weight:bold;
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Album — Edmon Portfolio</title>
+  <link rel="stylesheet" href="base.css">
 </head>
-
 <body>
 
-<h1>Collection Album</h1>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="homepage.html" class="nav-logo">EG<span class="dot">.</span><span class="num">NO. 20</span></a>
+      <a href="personal-background.html" class="nav-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back
+      </a>
+    </div>
+  </nav>
 
-<p>
-Welcome to my Collection Album! I'm <b>Sofia Trinity C. Pagaran</b> and here are some personal photos and memories from different parts of my life.
-</p>
+  <div class="hero page-wrapper">
+    <p class="hero-eyebrow anim-fade-up">Photo Gallery</p>
+    <h1 class="hero-title anim-fade-up" style="animation-delay:.08s">
+      PERSONAL<br><span class="glow">SHOTS</span>
+    </h1>
+    <div class="court-divider-sm anim-fade-up" style="animation-delay:.15s"></div>
+    <p class="hero-subtitle anim-fade-up" style="animation-delay:.2s">Tap any photo to view full size. Use arrow keys to navigate.</p>
+  </div>
 
-<div class="gallery">
+  <div class="page-wrapper section" style="padding-top:0">
+    <div class="gallery-grid anim-fade-up">
+      <div class="gallery-item"><img src="Personal/1.jpeg"  alt="Photo 1"></div>
+      <div class="gallery-item"><img src="Personal/2.jpeg"  alt="Photo 2"></div>
+      <div class="gallery-item"><img src="Personal/3.jpeg"  alt="Photo 3"></div>
+      <div class="gallery-item"><img src="Personal/4.jpeg"  alt="Photo 4"></div>
+      <div class="gallery-item"><img src="Personal/5.jpeg"  alt="Photo 5"></div>
+      <div class="gallery-item"><img src="Personal/6.jpeg"  alt="Photo 6"></div>
+      <div class="gallery-item"><img src="Personal/7.jpeg"  alt="Photo 7"></div>
+      <div class="gallery-item"><img src="Personal/8.jpeg"  alt="Photo 8"></div>
+      <div class="gallery-item"><img src="Personal/9.jpeg"  alt="Photo 9"></div>
+      <div class="gallery-item"><img src="Personal/10.jpeg" alt="Photo 10"></div>
+      <div class="gallery-item"><img src="Personal/11.jpeg" alt="Photo 11"></div>
+      <div class="gallery-item"><img src="Personal/12.jpeg" alt="Photo 12"></div>
+      <div class="gallery-item"><img src="Personal/13.jpeg" alt="Photo 13"></div>
+      <div class="gallery-item"><img src="Personal/14.jpeg" alt="Photo 14"></div>
+      <div class="gallery-item"><img src="Personal/15.jpeg" alt="Photo 15"></div>
+      <div class="gallery-item"><img src="Personal/16.jpeg" alt="Photo 16"></div>
+    </div>
+  </div>
 
-<div class="photo"><img src="personal/baby.jpg"></div>
-<div class="photo"><img src="family/Pic1.jpg"></div>
+  <footer class="site-footer">
+    <p>© 2025 Edmon Gutlay · Quezon City 🏀</p>
+  </footer>
 
-<div class="photo"><img src="personal/m1.jpg"></div>
-<div class="photo"><img src="personal/m2.jpg"></div>
-<div class="photo"><img src="personal/m3.jpg"></div>
-<div class="photo"><img src="personal/m4.jpg"></div>
-<div class="photo"><img src="personal/m5.jpg"></div>
-<div class="photo"><img src="personal/m6.jpg"></div>
-<div class="photo"><img src="personal/m7.jpg"></div>
-<div class="photo"><img src="personal/m8.jpg"></div>
-<div class="photo"><img src="personal/m9.jpg"></div>
-<div class="photo"><img src="personal/m10.jpg"></div>
-<div class="photo"><img src="personal/m11.jpg"></div>
-<div class="photo"><img src="personal/m12.jpg"></div>
-<div class="photo"><img src="personal/me1.jpg"></div>
-
-<div class="photo"><img src="education/m1.jpg"></div>
-<div class="photo"><img src="education/m2.jpg"></div>
-<div class="photo"><img src="education/m3.jpg"></div>
-<div class="photo"><img src="education/m4.jpg"></div>
-<div class="photo"><img src="education/m5.jpg"></div>
-
-</div>
-
-<a href="collection.html">Back to First Page</a>
-<a href="https://pagaransofiatrinity-design.github.io/myportfolio3/">Back to Homepage</a>
-
+  <script src="base.js"></script>
 </body>
 </html>
-```
-
-
-
-
