@@ -1,160 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Personal Homepage</title>
-    <link rel="stylesheet" href="theme.css">
-    <link rel="stylesheet" href="style.css"> 
-	
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✨ Sofia's Pixel Fantasy Homepage</title>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
+<!-- ╔══ HEADER BAR ═══════════════════════════════╗ -->
 <header class="header">
-    <div class="tab-bar">
-        <div class="controls">
-            <span class="circle red"></span>
-            <span class="circle yellow"></span>
-            <span class="circle green"></span>
-        </div>
-
-        <p>New Tab</p>
-
-        <button id="logoutBtn" class="logout-btn">Sign Out</button>
+  <div class="tab-bar">
+    <div class="controls">
+      <span class="circle red"></span>
+      <span class="circle yellow"></span>
+      <span class="circle green"></span>
     </div>
+    <p>✦ SOFIA'S WORLD ✦</p>
+    <button id="logoutBtn" class="logout-btn">SIGN OUT</button>
+  </div>
 </header>
 
-<section class="welcome-box">
-    <h1>✨ Welcome ✨</h1>
-    <h3>Sofia Trinity Pagaran</h3>
-    <p>What is our activity for today?</p>
-
-    <!-- Hidden description -->
-    <p id="description" class="hidden">
-        This website is a collection of my favorite artworks, memories,
-        activities, and personal projects. Feel free to explore and
-        enjoy the experience!
-    </p>
-
-    <a href="#" class="read-more" id="readMoreBtn">Read More</a>
-</section>
-
-<section class="main-content">
-
-    <div class="art-liked card">
-        <p>Duckstreet<br>game</p> 
-		<a href="https://duckstreet.net/">
-        <img src="chucken.jpg" alt="cat drawing" height="80%" width="50%">
-		</a>
-    </div>
-
-    <div class="middle-art card"> 
-		<p>You received a text from "Sofie<3".</p> 
-		<a href="https://www.educaplay.com/types-of-activities/froggy-jumps.html">
-        <img src="Mini Doodle.jpg" alt="froggy" height="86%" width="50%">
-		</a>
-    </div>
-
-    <div class="recent-searches">
-        <h3>Recent Searches</h3>
-       <a href="personal_album.html"> <button>🔍 Personal</button></a>
-       <a href="Education_Album.html"> <button>🔍 Education</button></a>
-       <a href="collection_album.html"> <button>❤️ Collection</button></a>
-       <a href="Family_album.html"> <button>▶️ Family</button></a>
-    </div>
-
-    <div class="photography card"> 
-		<p>Pinterest</p>
-		<a href="https://www.pinterest.com/search/pins/?q=art&rs=typed">
-        <img src="elgatooo.jpg" alt="camera" height="80%" width="50%"> 
-		</a>
-    </div>
-
-</section>
-
-<div class="view-more">
-    <button id="viewMoreBtn">View More</button>
-
-    <div id="extraButtons">
-        <a href="https://number.toys/"><button class="extra-btn">Sudoku</button><a/> 
-		
-        <a href="https://card.toys/"><button class="extra-btn">Solitare</button> <a/> 
-		
-        <a href="https://cruel.toys/maze/"><button class="extra-btn">Cruel Maze</button> <a/> 
-		
-        <button id="hideBtn">Hide It Back</button>
-    </div>
+<!-- ╔══ STATS BAR ════════════════════════════════╗ -->
+<div class="stats-bar">
+  <div class="stat-item">HP <span>♥♥♥♥♥</span></div>
+  <div class="stat-item">LVL <span>99</span></div>
+  <div class="stat-item">XP <span>★★★★★</span></div>
+  <div class="stat-item">PLAYER <span>SOFIA</span></div>
 </div>
 
+<!-- ╔══ PIXEL ART HERO SCENE ════════════════════╗ -->
+<div class="hero-scene" style="padding-top:20px;">
+  <svg viewBox="0 0 960 360" xmlns="http://www.w3.org/2000/svg"
+       style="image-rendering:pixelated; display:block; width:100%; border:3px solid #FF80B4; box-shadow:6px 6px 0 #E8608A;">
+    <defs>
+      <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%"   stop-color="#FFB3CC"/>
+        <stop offset="60%"  stop-color="#FFD4E5"/>
+        <stop offset="100%" stop-color="#FFE8F3"/>
+      </linearGradient>
+      <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%"   stop-color="#FFFDE7" stop-opacity="1"/>
+        <stop offset="60%"  stop-color="#FFF9C4" stop-opacity="0.8"/>
+        <stop offset="100%" stop-color="#FFE8F0" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <!-- SKY -->
+    <rect width="960" height="360" fill="url(#skyGrad)"/>
+
+    <!-- SUN GLOW -->
+    <circle cx="864" cy="64" r="64" fill="url(#sunGlow)" opacity="0.7"/>
+    <!-- SUN CORE (pixelated) -->
+    <rect x="840" y="40" width="48" height="48" fill="#FFFDE7" rx="0"/>
+    <rect x="832" y="48" width="64" height="32" fill="#FFFDE7" rx="0"/>
+    <rect x="848" y="32" width="32" height="64" fill="#FFFDE7" rx="0"/>
+    <!-- Sun face -->
+    <rect x="852" y="52" width="6" height="6" fill="#F5C842"/>
+    <rect x="866" y="52" width="6" height="6" fill="#F5C842"/>
+    <rect x="852" y="64" width="18" height="4" fill="#F5C842"/>
+
+    <!-- LIGHT RAYS (diagonal streaks) -->
+    <rect x="720" y="0"   width="3" height="200" fill="#FFFFFF" opacity="0.18" transform="rotate(-20 800 0)"/>
+    <rect x="760" y="0"   width="2" height="180" fill="#FFFFFF" opacity="0.14" transform="rotate(-20 800 0)"/>
+    <rect x="700" y="0"   width="2" height="160" fill="#FFFFFF" opacity="0.10" transform="rotate(-20 800 0)"/>
+    <rect x="580" y="0"   width="2" height="220" fill="#FFFFFF" opacity="0.10" transform="rotate(-15 800 0)"/>
+
+    <!-- CLOUDS -->
+    <!-- Cloud 1 (left) -->
+    <rect x="48"  y="32"  width="80"  height="24" fill="#FFF5F8"/>
+    <rect x="40"  y="40"  width="96"  height="24" fill="#FFF5F8"/>
+    <rect x="56"  y="24"  width="56"  height="16" fill="#FFF5F8"/>
+    <!-- Cloud 2 (center-left) -->
+    <rect x="240" y="24"  width="96"  height="24" fill="#FFFFFF"/>
+    <rect x="232" y="32"  width="112" height="20" fill="#FFFFFF"/>
+    <rect x="256" y="16"  width="64"  height="16" fill="#FFFFFF"/>
+    <!-- Cloud 3 (center) -->
+    <rect x="480" y="16"  width="72"  height="20" fill="#FFF8FC"/>
+    <rect x="472" y="24"  width="88"  height="20" fill="#FFF8FC"/>
+    <!-- Cloud 4 (right) — smaller near sun -->
+    <rect x="752" y="104" width="64"  height="16" fill="#FFF5F8" opacity="0.9"/>
+    <rect x="744" y="112" width="80"  height="16" fill="#FFF5F8" opacity="0.9"/>
+
+    <!-- FAR MOUNTAINS (silhouette) -->
+    <polygon points="0,240 80,160 160,240"   fill="#F09AB8" opacity="0.6"/>
+    <polygon points="80,240 180,152 280,240"  fill="#F09AB8" opacity="0.5"/>
+    <polygon points="200,240 320,144 440,240" fill="#E8A0C0" opacity="0.5"/>
+    <polygon points="520,240 640,152 760,240" fill="#F09AB8" opacity="0.4"/>
+    <polygon points="720,240 840,160 960,240" fill="#E8A0C0" opacity="0.5"/>
+    <polygon points="840,240 960,168 960,240" fill="#F09AB8" opacity="0.4"/>
+
+    <!-- GROUND BASE -->
+    <rect x="0" y="310" width="960" height="50" fill="#FF80B4"/>
+    <rect x="0" y="322" width="960" height="38" fill="#F09AB8"/>
+    <rect x="0" y="338" width="960" height="22" fill="#E8608A"/>
+
+    <!-- FOREGROUND WAVE SHAPES -->
+    <rect x="0"   y="300" width="160" height="16" fill="#FFA0C8"/>
+    <rect x="120" y="292" width="200" height="16" fill="#FF80B4"/>
+    <rect x="280" y="300" width="160" height="14" fill="#FFA0C8"/>
+    <rect x="620" y="292" width="180" height="16" fill="#FF80B4"/>
+    <rect x="780" y="300" width="180" height="14" fill="#FFA0C8"/>
+
+    <!-- GOLDEN HILL -->
+    <ellipse cx="480" cy="318" rx="240" ry="56" fill="#F5C842"/>
+    <ellipse cx="480" cy="310" rx="220" ry="48" fill="#FFD700"/>
+    <ellipse cx="480" cy="304" rx="196" ry="40" fill="#F5E642"/>
+    <!-- Hill highlight -->
+    <ellipse cx="460" cy="296" rx="100" ry="16" fill="#FFFDE7" opacity="0.4"/>
+
+    <!-- ══ TREE ════════════════════════════════════ -->
+    <!-- Trunk -->
+    <rect x="462" y="176" width="36" height="136" fill="#8B5E3C"/>
+    <rect x="468" y="176" width="12" height="136" fill="#A0714F"/>
+    <!-- Roots -->
+    <rect x="446" y="288" width="20" height="16" fill="#8B5E3C"/>
+    <rect x="494" y="288" width="20" height="16" fill="#8B5E3C"/>
+    <rect x="438" y="296" width="16" height="12" fill="#5C3D1E"/>
+    <rect x="506" y="296" width="16" height="12" fill="#5C3D1E"/>
+
+    <!-- Main Branches -->
+    <!-- Left branch (long) -->
+    <rect x="280" y="216" width="184" height="16" fill="#8B5E3C"/>
+    <rect x="288" y="212" width="160" height="8"  fill="#A0714F"/>
+    <!-- Left sub-branch (up) -->
+    <rect x="320" y="184" width="16"  height="48" fill="#8B5E3C"/>
+    <rect x="320" y="160" width="16"  height="40" fill="#7A5230"/>
+    <!-- Right branch (long) -->
+    <rect x="496" y="216" width="192" height="16" fill="#8B5E3C"/>
+    <rect x="512" y="212" width="160" height="8"  fill="#A0714F"/>
+    <!-- Right sub-branch (up) -->
+    <rect x="624" y="184" width="16"  height="48" fill="#8B5E3C"/>
+    <rect x="624" y="160" width="16"  height="40" fill="#7A5230"/>
+    <!-- Center up branch -->
+    <rect x="462" y="128" width="36"  height="64" fill="#8B5E3C"/>
+    <rect x="468" y="120" width="14"  height="56" fill="#A0714F"/>
+
+    <!-- FOLIAGE CLUSTERS — layered pink blobs -->
+    <!-- Far left cluster -->
+    <rect x="192" y="144" width="96"  height="72" fill="#FFB3CC"/>
+    <rect x="184" y="152" width="112" height="72" fill="#FFB3CC"/>
+    <rect x="200" y="136" width="80"  height="56" fill="#FFCCE0"/>
+    <rect x="208" y="128" width="64"  height="40" fill="#FFD4E5"/>
+
+    <!-- Center-left cluster -->
+    <rect x="312" y="96"  width="112" height="88" fill="#FFB3CC"/>
+    <rect x="304" y="104" width="128" height="80" fill="#FFA0C8"/>
+    <rect x="320" y="88"  width="96"  height="64" fill="#FFCCE0"/>
+    <rect x="332" y="80"  width="72"  height="48" fill="#FFD4E5"/>
+
+    <!-- Center top cluster (tallest, on top branch) -->
+    <rect x="408" y="48"  width="144" height="112" fill="#FFB3CC"/>
+    <rect x="400" y="56"  width="160" height="104" fill="#FFA0C8"/>
+    <rect x="416" y="40"  width="128" height="80"  fill="#FFCCE0"/>
+    <rect x="432" y="32"  width="96"  height="64"  fill="#FFD4E5"/>
+    <rect x="448" y="24"  width="64"  height="48"  fill="#FFECF3"/>
+
+    <!-- Center-right cluster -->
+    <rect x="536" y="96"  width="112" height="88" fill="#FFB3CC"/>
+    <rect x="528" y="104" width="128" height="80" fill="#FFA0C8"/>
+    <rect x="544" y="88"  width="96"  height="64" fill="#FFCCE0"/>
+    <rect x="556" y="80"  width="72"  height="48" fill="#FFD4E5"/>
+
+    <!-- Far right cluster -->
+    <rect x="672" y="144" width="96"  height="72" fill="#FFB3CC"/>
+    <rect x="664" y="152" width="112" height="72" fill="#FFB3CC"/>
+    <rect x="680" y="136" width="80"  height="56" fill="#FFCCE0"/>
+    <rect x="688" y="128" width="64"  height="40" fill="#FFD4E5"/>
+
+    <!-- Foliage overlap details (darker pink shadows) -->
+    <rect x="200" y="200" width="80"  height="16" fill="#FF80B4" opacity="0.4"/>
+    <rect x="320" y="168" width="96"  height="16" fill="#FF80B4" opacity="0.4"/>
+    <rect x="416" y="144" width="128" height="16" fill="#FF80B4" opacity="0.4"/>
+    <rect x="544" y="168" width="96"  height="16" fill="#FF80B4" opacity="0.4"/>
+    <rect x="680" y="200" width="80"  height="16" fill="#FF80B4" opacity="0.4"/>
+
+    <!-- ══ CAT CHARM ══════════════════════════════ -->
+    <!-- String from left branch -->
+    <rect x="326" y="228" width="2" height="28" fill="#C06090"/>
+    <!-- Cat face circle -->
+    <rect x="312" y="256" width="28" height="28" fill="#FFD4E5"/>
+    <rect x="308" y="260" width="36" height="20" fill="#FFD4E5"/>
+    <rect x="312" y="252" width="28" height="32" fill="#FFD4E5"/>
+    <!-- Cat ears -->
+    <rect x="312" y="248" width="8"  height="10" fill="#FF80B4"/>
+    <rect x="332" y="248" width="8"  height="10" fill="#FF80B4"/>
+    <!-- Heart eyes -->
+    <rect x="316" y="262" width="4"  height="4" fill="#E8608A"/>
+    <rect x="314" y="260" width="8"  height="4" fill="#E8608A"/>
+    <rect x="332" y="262" width="4"  height="4" fill="#E8608A"/>
+    <rect x="330" y="260" width="8"  height="4" fill="#E8608A"/>
+    <!-- Cat mouth -->
+    <rect x="320" y="270" width="3"  height="3" fill="#E8608A"/>
+    <rect x="329" y="270" width="3"  height="3" fill="#E8608A"/>
+    <rect x="322" y="272" width="8"  height="2" fill="#E8608A"/>
+    <!-- Cheeks -->
+    <rect x="312" y="268" width="6"  height="4" fill="#FFB3CC" opacity="0.8"/>
+    <rect x="334" y="268" width="6"  height="4" fill="#FFB3CC" opacity="0.8"/>
+    <!-- Charm glow -->
+    <rect x="310" y="250" width="32" height="40" fill="none" stroke="#FFB3CC" stroke-width="2"/>
+
+    <!-- ══ ADVENTURE ITEMS ════════════════════════ -->
+
+    <!-- PURPLE SWORD (left of tree) -->
+    <!-- Blade (tall, thin) -->
+    <rect x="396" y="224" width="8"  height="72" fill="#7C3AED"/>
+    <rect x="398" y="224" width="4"  height="72" fill="#A78BFA"/>
+    <!-- Guard (crossguard) -->
+    <rect x="384" y="280" width="32" height="8"  fill="#5B21B6"/>
+    <rect x="384" y="282" width="32" height="4"  fill="#7C3AED"/>
+    <!-- Pommel -->
+    <rect x="392" y="296" width="16" height="10" fill="#5B21B6"/>
+    <rect x="394" y="298" width="12" height="6"  fill="#7C3AED"/>
+    <!-- Gem on pommel -->
+    <rect x="397" y="299" width="6"  height="4"  fill="#C4B5FD"/>
+    <!-- Tip of blade -->
+    <rect x="397" y="218" width="6"  height="8"  fill="#7C3AED"/>
+    <rect x="398" y="214" width="4"  height="8"  fill="#A78BFA"/>
+    <rect x="399" y="210" width="2"  height="6"  fill="#C4B5FD"/>
+
+    <!-- PINK POTION BOTTLE -->
+    <!-- Bottle body -->
+    <rect x="436" y="266" width="24" height="36" fill="#FF80B4"/>
+    <rect x="434" y="268" width="28" height="32" fill="#FF80B4"/>
+    <rect x="440" y="266" width="8"  height="32" fill="#FFB3CC"/>
+    <!-- Bottle neck -->
+    <rect x="442" y="254" width="12" height="16" fill="#FF80B4"/>
+    <rect x="444" y="252" width="8"  height="4"  fill="#E8608A"/>
+    <!-- Cork -->
+    <rect x="442" y="248" width="12" height="8"  fill="#C9A227"/>
+    <rect x="444" y="246" width="8"  height="4"  fill="#FFD700"/>
+    <!-- Liquid highlight -->
+    <rect x="438" y="280" width="6"  height="12" fill="#FFD4E5" opacity="0.8"/>
+    <!-- Glow effect -->
+    <rect x="432" y="264" width="32" height="40" fill="none" stroke="#FF80B4" stroke-width="1" opacity="0.6"/>
+
+    <!-- BLACK CUBE / ROCK -->
+    <rect x="506" y="284" width="24" height="24" fill="#2D1B3D"/>
+    <rect x="508" y="282" width="20" height="4"  fill="#3D2B4D"/>
+    <rect x="506" y="284" width="4"  height="24" fill="#1A0A20"/>
+    <rect x="508" y="286" width="6"  height="6"  fill="#3D2B4D" opacity="0.5"/>
+
+    <!-- GOLDEN TREASURE CHEST -->
+    <!-- Chest body -->
+    <rect x="538" y="274" width="56" height="36" fill="#C9A227"/>
+    <rect x="536" y="276" width="60" height="32" fill="#C9A227"/>
+    <rect x="540" y="276" width="52" height="28" fill="#FFD700"/>
+    <!-- Chest lid -->
+    <rect x="538" y="268" width="56" height="14" fill="#F5C842"/>
+    <rect x="536" y="270" width="60" height="10" fill="#FFD700"/>
+    <!-- Lid highlight -->
+    <rect x="544" y="270" width="40" height="4"  fill="#FFFDE7" opacity="0.6"/>
+    <!-- Lid-body divider -->
+    <rect x="536" y="280" width="60" height="4"  fill="#8B6914"/>
+    <!-- Lock -->
+    <rect x="558" y="278" width="16" height="16" fill="#8B6914"/>
+    <rect x="560" y="276" width="12" height="18" fill="#C9A227"/>
+    <rect x="562" y="274" width="8"  height="6"  fill="#8B6914"/>
+    <rect x="563" y="273" width="6"  height="4"  fill="none" stroke="#8B6914" stroke-width="2"/>
+    <rect x="564" y="282" width="4"  height="6"  fill="#FFD700"/>
+    <!-- Chest corners (rivets) -->
+    <rect x="538" y="276" width="6"  height="6"  fill="#8B6914"/>
+    <rect x="588" y="276" width="6"  height="6"  fill="#8B6914"/>
+    <rect x="538" y="300" width="6"  height="6"  fill="#8B6914"/>
+    <rect x="588" y="300" width="6"  height="6"  fill="#8B6914"/>
+    <!-- Chest stripes (bands) -->
+    <rect x="536" y="292" width="60" height="4"  fill="#8B6914" opacity="0.5"/>
+    <!-- Gold shine -->
+    <rect x="548" y="284" width="12" height="8"  fill="#FFFDE7" opacity="0.35"/>
+
+    <!-- PIXEL SPARKLES / STARS scattered -->
+    <rect x="160" y="96"  width="4"  height="4"  fill="#FFD700"/>
+    <rect x="156" y="100" width="12" height="2"  fill="#FFD700" opacity="0.7"/>
+    <rect x="162" y="94"  width="2"  height="12" fill="#FFD700" opacity="0.7"/>
+
+    <rect x="792" y="80"  width="4"  height="4"  fill="#FFFFFF"/>
+    <rect x="788" y="84"  width="12" height="2"  fill="#FFFFFF" opacity="0.7"/>
+    <rect x="794" y="78"  width="2"  height="12" fill="#FFFFFF" opacity="0.7"/>
+
+    <rect x="632" y="48"  width="4"  height="4"  fill="#FFB3CC"/>
+    <rect x="628" y="52"  width="12" height="2"  fill="#FFB3CC" opacity="0.7"/>
+    <rect x="634" y="46"  width="2"  height="12" fill="#FFB3CC" opacity="0.7"/>
+
+    <rect x="96"  y="176" width="4"  height="4"  fill="#C4B5FD"/>
+    <rect x="92"  y="180" width="12" height="2"  fill="#C4B5FD" opacity="0.7"/>
+    <rect x="98"  y="174" width="2"  height="12" fill="#C4B5FD" opacity="0.7"/>
+
+    <!-- Bottom border decorations -->
+    <rect x="0"   y="350" width="960" height="10" fill="#1A0A20"/>
+    <!-- Pixel border pattern -->
+    <rect x="0"   y="350" width="8"  height="10" fill="#7C3AED"/>
+    <rect x="16"  y="350" width="8"  height="10" fill="#FF80B4"/>
+    <rect x="32"  y="350" width="8"  height="10" fill="#FFD700"/>
+    <rect x="48"  y="350" width="8"  height="10" fill="#7C3AED"/>
+    <rect x="64"  y="350" width="8"  height="10" fill="#FF80B4"/>
+    <rect x="80"  y="350" width="8"  height="10" fill="#FFD700"/>
+    <!-- ... repeat pattern implied -->
+  </svg>
+</div>
+
+<!-- ╔══ PIXEL DIVIDER ════════════════════════════╗ -->
+<div class="pixel-divider"></div>
+
+<!-- ╔══ WELCOME BOX ══════════════════════════════╗ -->
+<section class="welcome-box" style="margin-top:24px;">
+  <h1>✨ WELCOME ✨</h1>
+  <h3 style="margin:12px 0;">Sofia Trinity Pagaran</h3>
+  <p>What is our activity for today?</p>
+  <p id="description" class="hidden" style="margin-top:14px;font-style:italic;">
+    This website is a collection of my favorite artworks, memories,
+    activities, and personal projects. Feel free to explore and
+    enjoy the experience!
+  </p>
+  <a href="#" class="read-more" id="readMoreBtn">READ MORE ▶</a>
+</section>
+
+<div class="pixel-divider"></div>
+
+<!-- ╔══ MAIN CONTENT GRID ═══════════════════════╗ -->
+<section class="main-content">
+
+  <div class="art-liked card">
+    <p>🦆 DUCKSTREET<br>GAME</p>
+    <a href="https://duckstreet.net/">
+      <img src="chucken.jpg" alt="Duckstreet game" style="width:100%;max-height:140px;object-fit:cover;">
+    </a>
+    <span style="font-family:'Press Start 2P';font-size:0.45rem;color:#7C3AED;">PLAY NOW ▶</span>
+  </div>
+
+  <div class="middle-art card">
+    <p>📱 YOU GOT A TEXT<br>FROM "SOFIE ♡"</p>
+    <a href="https://www.educaplay.com/types-of-activities/froggy-jumps.html">
+      <img src="Mini Doodle.jpg" alt="Froggy game" style="width:100%;max-height:140px;object-fit:cover;">
+    </a>
+    <span style="font-family:'Press Start 2P';font-size:0.45rem;color:#FF80B4;">TAP TO PLAY ▶</span>
+  </div>
+
+  <div class="recent-searches">
+    <h3 style="margin-bottom:14px;">📂 MY ALBUMS</h3>
+    <a href="personal_album.html"><button>🔍 PERSONAL</button></a>
+    <a href="Education_Album.html"><button>🔍 EDUCATION</button></a>
+    <a href="collection_album.html"><button>❤️ COLLECTION</button></a>
+    <a href="Family_album.html"><button>▶️ FAMILY</button></a>
+  </div>
+
+  <div class="photography card">
+    <p>📌 PINTEREST</p>
+    <a href="https://www.pinterest.com/search/pins/?q=art&rs=typed">
+      <img src="elgatooo.jpg" alt="Pinterest" style="width:100%;max-height:140px;object-fit:cover;">
+    </a>
+    <span style="font-family:'Press Start 2P';font-size:0.45rem;color:#E8608A;">BROWSE ▶</span>
+  </div>
+
+</section>
+
+<div class="pixel-divider"></div>
+
+<!-- ╔══ VIEW MORE ════════════════════════════════╗ -->
+<div class="view-more">
+  <button id="viewMoreBtn">⬇ VIEW MORE GAMES</button>
+  <div id="extraButtons" class="hidden">
+    <a href="https://number.toys/"><button class="extra-btn">🔢 SUDOKU</button></a>
+    <a href="https://card.toys/"><button class="extra-btn">🃏 SOLITAIRE</button></a>
+    <a href="https://cruel.toys/maze/"><button class="extra-btn">🌀 CRUEL MAZE</button></a>
+    <button id="hideBtn">▲ HIDE GAMES</button>
+  </div>
+</div>
+
+<!-- ╔══ FOOTER ══════════════════════════════════╗ -->
 <footer>
-    <a href="#">Personal Website ⭐</a>
+  <a href="#">✦ SOFIA TRINITY PAGARAN'S PERSONAL WEBSITE ✦</a>
+  <p style="font-family:'Press Start 2P';font-size:0.4rem;color:#9B59B6;margin-top:12px;">© 2025 — MADE WITH ♥ AND PIXEL MAGIC</p>
 </footer>
+
 <script>
+  // View More
+  const viewMoreBtn = document.getElementById("viewMoreBtn");
+  const hideBtn     = document.getElementById("hideBtn");
+  const extras      = document.getElementById("extraButtons");
+  viewMoreBtn.addEventListener("click", () => {
+    extras.classList.remove("hidden");
+    viewMoreBtn.style.display = "none";
+  });
+  hideBtn.addEventListener("click", () => {
+    extras.classList.add("hidden");
+    viewMoreBtn.style.display = "inline-block";
+  });
 
-    const viewMoreBtn = document.getElementById("viewMoreBtn");
-    const hideBtn = document.getElementById("hideBtn");
-    const extraButtons = document.getElementById("extraButtons");
-
-	const logoutBtn = document.getElementById("logoutBtn");
-
-    viewMoreBtn.addEventListener("click", function() {
-        extraButtons.classList.remove("hidden");
-        viewMoreBtn.style.display = "none";
-    });
-
-    hideBtn.addEventListener("click", function() {
-        extraButtons.classList.add("hidden");
-        viewMoreBtn.style.display = "block";
-    });
-
-	const readMoreBtn = document.getElementById("readMoreBtn");
-	const description = document.getElementById("description");
-
-	readMoreBtn.addEventListener("click", function(e) {
-    e.preventDefault(); // prevents page from jumping
-
+  // Read More
+  const readMoreBtn = document.getElementById("readMoreBtn");
+  const description = document.getElementById("description");
+  readMoreBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     if (description.classList.contains("hidden")) {
-        description.classList.remove("hidden");
-        readMoreBtn.textContent = "Go Back";
+      description.classList.remove("hidden");
+      readMoreBtn.textContent = "◀ GO BACK";
     } else {
-        description.classList.add("hidden");
-        readMoreBtn.textContent = "Read More";
+      description.classList.add("hidden");
+      readMoreBtn.textContent = "READ MORE ▶";
     }
-	});
-	
+  });
 
-	logoutBtn.addEventListener("click", function(){
-
+  // Logout
+  document.getElementById("logoutBtn").addEventListener("click", () => {
     document.body.innerHTML = `
-    <div style="
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        height:100vh;
-        font-family:Arial;
-        font-size:28px;
-        background:#77a4f7;
-        animation:fade 1s ease;
-    ">
-        Signing out...
-    </div>
+      <div style="
+        display:flex; flex-direction:column;
+        justify-content:center; align-items:center;
+        height:100vh; background:#1A0A20;
+        font-family:'Press Start 2P',monospace;
+        gap:24px;
+      ">
+        <div style="font-size:1.2rem;color:#FFB3CC;">SIGNING OUT...</div>
+        <div style="
+          width:240px; height:16px;
+          background:#2D1B3D; border:3px solid #7C3AED;
+          box-shadow:4px 4px 0 #5B21B6;
+          overflow:hidden; border-radius:0;
+        ">
+          <div id="pBar" style="
+            width:0%; height:100%;
+            background:linear-gradient(90deg,#7C3AED,#FF80B4);
+            transition:width 1.8s ease;
+          "></div>
+        </div>
+        <div style="font-size:0.5rem;color:#9B59B6;">SAVING GAME DATA...</div>
+      </div>
     `;
-
-    setTimeout(function(){
-        window.location.href = "login_signup.html";
-    },2000);
-
-});
+    setTimeout(() => document.getElementById("pBar").style.width = "100%", 50);
+    setTimeout(() => window.location.href = "login_signup.html", 2200);
+  });
 </script>
 
-
-
 </body>
-
 </html>
-
-
-
-
-
-
-
-

@@ -1,52 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login - Sofia's Homepage</title>
-    <link rel="stylesheet" href="theme.css">
-    <style>
-        body { display: flex; justify-content: center; align-items: center; }
-        .login-container { text-align: center; width: 320px; }
-        .error { color: #FF6B6B; font-size: 14px; margin-top: 10px; display: none; font-weight: bold; }
-        .register-link { margin-top: 20px; font-size: 13px; }
-        .register-link a { color: var(--purple-accent); font-weight: bold; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — Sofia's World</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      background:
+        linear-gradient(135deg, #1A0A20 0%, #3D1A2E 50%, #5B2C6F 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Pixel star field */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, #FFB3CC 1px, transparent 1px),
+        radial-gradient(circle, #FFFFFF 1px, transparent 1px),
+        radial-gradient(circle, #F5C842 1px, transparent 1px);
+      background-size: 120px 120px, 80px 80px, 200px 200px;
+      background-position: 0 0, 40px 40px, 80px 20px;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .login-scene {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* Pixel art title banner */
+    .login-banner {
+      background: #1A0A20;
+      border: 3px solid #7C3AED;
+      border-bottom: none;
+      box-shadow: 4px 0 0 #5B21B6;
+      padding: 16px 32px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .login-banner h1 {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.7rem;
+      color: #FFB3CC;
+      letter-spacing: 3px;
+      line-height: 2;
+    }
+
+    .pixel-rainbow {
+      height: 6px;
+      background: repeating-linear-gradient(
+        90deg,
+        #7C3AED 0px, #7C3AED 8px,
+        #FF80B4 8px, #FF80B4 16px,
+        #FFD700 16px, #FFD700 24px,
+        #FF80B4 24px, #FF80B4 32px
+      );
+      width: 100%;
+    }
+
+    .login-container {
+      width: 360px;
+      padding: 36px;
+      background: #FFF5FA;
+      border: 3px solid #7C3AED;
+      border-top: none;
+      box-shadow: 4px 6px 0 #5B21B6;
+    }
+
+    .cat-mascot {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    /* Inline pixel cat SVG */
+    .cat-mascot svg {
+      image-rendering: pixelated;
+    }
+
+    .field-label {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+      color: #7C3F5A;
+      display: block;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+
+    .field-group {
+      margin-bottom: 20px;
+    }
+
+    .field-group input {
+      font-family: 'Nunito', sans-serif;
+      background: white;
+      border: 3px solid #FFBDD8;
+      box-shadow: inset 2px 2px 0 #F0C0D8, 3px 3px 0 #E8A0C0;
+      padding: 12px 14px;
+      width: 100%;
+      font-size: 0.95rem;
+      color: #3D1A2E;
+      border-radius: 0;
+      transition: all 0.2s;
+    }
+
+    .field-group input:focus {
+      outline: none;
+      border-color: #7C3AED;
+      box-shadow: inset 2px 2px 0 #D0A0C0, 3px 3px 0 #5B21B6;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      background: #7C3AED;
+      color: white;
+      border: 3px solid #5B21B6;
+      box-shadow: 4px 4px 0 #3D0070;
+      cursor: pointer;
+      transition: all 0.1s;
+      letter-spacing: 2px;
+    }
+
+    .login-btn:hover {
+      background: #FF80B4;
+      border-color: #E8608A;
+      box-shadow: 4px 4px 0 #C0406A;
+    }
+
+    .login-btn:active {
+      transform: translate(4px, 4px);
+      box-shadow: none;
+    }
+
+    .error-msg {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+      color: #FF5F57;
+      text-align: center;
+      margin-top: 12px;
+      padding: 10px;
+      background: #2D1B3D;
+      border: 2px solid #FF5F57;
+      display: none;
+      line-height: 1.8;
+    }
+
+    .register-link {
+      text-align: center;
+      margin-top: 20px;
+      font-family: 'VT323', monospace;
+      font-size: 1.1rem;
+      color: #7C3F5A;
+    }
+
+    .register-link a {
+      color: #7C3AED;
+      font-weight: bold;
+    }
+
+    .hint-text {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.38rem;
+      color: #C4B5FD;
+      text-align: center;
+      margin-top: 16px;
+      opacity: 0.8;
+      line-height: 2;
+    }
+
+    /* Floating pixel decorations */
+    .pixel-deco {
+      position: fixed;
+      font-size: 1.2rem;
+      animation: floatDeco 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .pixel-deco:nth-child(1) { top: 10%; left: 8%;  animation-delay: 0s;   }
+    .pixel-deco:nth-child(2) { top: 20%; right: 10%; animation-delay: 1s;   }
+    .pixel-deco:nth-child(3) { top: 60%; left: 5%;  animation-delay: 0.5s; }
+    .pixel-deco:nth-child(4) { top: 75%; right: 8%; animation-delay: 1.5s; }
+    .pixel-deco:nth-child(5) { top: 40%; left: 2%;  animation-delay: 2s;   }
+
+    @keyframes floatDeco {
+      0%, 100% { transform: translateY(0px); opacity: 0.7; }
+      50%       { transform: translateY(-12px); opacity: 1; }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+    .blink { animation: blink 1s step-end infinite; }
+  </style>
 </head>
 <body>
 
+  <!-- Floating pixel decorations -->
+  <div class="pixel-deco">⚔️</div>
+  <div class="pixel-deco">🧪</div>
+  <div class="pixel-deco">⭐</div>
+  <div class="pixel-deco">💎</div>
+  <div class="pixel-deco">🌸</div>
+
+  <div class="login-scene">
+
+    <!-- Top banner -->
+    <div class="login-banner">
+      <h1>✦ SOFIA'S WORLD ✦<br><span style="color:#F5C842;font-size:0.55rem;">PLAYER LOGIN</span></h1>
+    </div>
+    <div class="pixel-rainbow"></div>
+
     <div class="login-container">
-        <h2>✨ Welcome Back ✨</h2>
-        <input type="text" id="username" placeholder="Username (sofia)">
-        <input type="password" id="password" placeholder="Password (1234)">
-        <button onclick="attemptLogin()">Log In</button>
-        <p id="errorMsg" class="error">❌ Incorrect username or password!</p>
-        
-        <div class="register-link">
-            <p>Don't have an account? <a href="#" onclick="alert('In a real app, this would open a registration form.')">Sign Up</a></p>
-        </div>
+
+      <!-- Pixel Cat Mascot (inline SVG) -->
+      <div class="cat-mascot">
+        <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated;">
+          <!-- Body -->
+          <rect x="20" y="36" width="40" height="32" fill="#FFB3CC"/>
+          <rect x="16" y="40" width="48" height="24" fill="#FFB3CC"/>
+          <!-- Head -->
+          <rect x="16" y="12" width="48" height="40" fill="#FFD4E5"/>
+          <rect x="12" y="16" width="56" height="32" fill="#FFD4E5"/>
+          <!-- Ears -->
+          <rect x="12" y="8"  width="16" height="16" fill="#FF80B4"/>
+          <rect x="52" y="8"  width="16" height="16" fill="#FF80B4"/>
+          <rect x="16" y="12" width="8"  height="8"  fill="#FFB3CC"/>
+          <rect x="56" y="12" width="8"  height="8"  fill="#FFB3CC"/>
+          <!-- Heart eyes -->
+          <rect x="22" y="24" width="6"  height="6"  fill="#E8608A"/>
+          <rect x="20" y="22" width="10" height="6"  fill="#E8608A"/>
+          <rect x="52" y="24" width="6"  height="6"  fill="#E8608A"/>
+          <rect x="50" y="22" width="10" height="6"  fill="#E8608A"/>
+          <!-- Nose -->
+          <rect x="37" y="32" width="6"  height="4"  fill="#FF80B4"/>
+          <!-- Mouth -->
+          <rect x="32" y="36" width="4"  height="3"  fill="#E8608A"/>
+          <rect x="44" y="36" width="4"  height="3"  fill="#E8608A"/>
+          <rect x="36" y="38" width="8"  height="3"  fill="#E8608A"/>
+          <!-- Cheeks -->
+          <rect x="14" y="32" width="10" height="6"  fill="#FFB3CC" opacity="0.7"/>
+          <rect x="56" y="32" width="10" height="6"  fill="#FFB3CC" opacity="0.7"/>
+          <!-- Whiskers -->
+          <rect x="2"  y="34" width="18" height="2"  fill="#C06090" opacity="0.6"/>
+          <rect x="2"  y="38" width="14" height="2"  fill="#C06090" opacity="0.6"/>
+          <rect x="60" y="34" width="18" height="2"  fill="#C06090" opacity="0.6"/>
+          <rect x="64" y="38" width="14" height="2"  fill="#C06090" opacity="0.6"/>
+          <!-- Tail -->
+          <rect x="56" y="56" width="8"  height="16" fill="#FFB3CC"/>
+          <rect x="60" y="48" width="8"  height="16" fill="#FFB3CC"/>
+          <rect x="64" y="44" width="8"  height="8"  fill="#FFB3CC"/>
+          <!-- Feet -->
+          <rect x="20" y="64" width="14" height="8"  fill="#FFB3CC"/>
+          <rect x="46" y="64" width="14" height="8"  fill="#FFB3CC"/>
+          <!-- Collar -->
+          <rect x="20" y="48" width="40" height="6"  fill="#7C3AED"/>
+          <rect x="36" y="46" width="8"  height="10" fill="#F5C842"/>
+        </svg>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="username">▸ USERNAME</label>
+        <input type="text" id="username" placeholder="sofia">
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="password">▸ PASSWORD</label>
+        <input type="password" id="password" placeholder="••••">
+      </div>
+
+      <button class="login-btn" onclick="attemptLogin()">
+        ▶ PRESS START
+      </button>
+
+      <p id="errorMsg" class="error-msg">
+        ✖ WRONG USERNAME<br>OR PASSWORD!
+      </p>
+
+      <p class="hint-text">
+        HINT: user = sofia / pass = 1234<br>
+        <span class="blink">_</span>
+      </p>
+
+      <div class="register-link">
+        No account? <a href="#" onclick="alert('Sign-up coming soon!')">Register Here</a>
+      </div>
     </div>
 
-    <script>
-        function attemptLogin() {
-            const user = document.getElementById('username').value;
-            const pass = document.getElementById('password').value;
-            const errorMsg = document.getElementById('errorMsg');
+  </div>
 
-            // --- SIMULATED DATABASE ---
-            // In a real app, this would check a server. 
-            // Here we check if the user is "sofia" and pass is "1234"
-            if (user === "sofia" && pass === "1234") {
-                // Save login status to browser memory
-                localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('userName', user);
-                
-                // Redirect to homepage
-                window.location.href = "index.html";
-            } else {
-                // Show error
-                errorMsg.style.display = 'block';
-            }
-        }
-    </script>
+  <script>
+    function attemptLogin() {
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      const err  = document.getElementById('errorMsg');
+      const btn  = document.querySelector('.login-btn');
+
+      if (user === "sofia" && pass === "1234") {
+        btn.textContent = "✔ LOADING...";
+        btn.style.background = "#51CF66";
+        btn.style.borderColor = "#2F9E44";
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userName', user);
+        setTimeout(() => window.location.href = "index.html", 1000);
+      } else {
+        err.style.display = 'block';
+        btn.style.background = "#FF5F57";
+        btn.style.borderColor = "#C0392B";
+        setTimeout(() => {
+          btn.style.background = "#7C3AED";
+          btn.style.borderColor = "#5B21B6";
+        }, 1000);
+      }
+    }
+
+    // Enter key support
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') attemptLogin();
+    });
+  </script>
+
 </body>
 </html>
