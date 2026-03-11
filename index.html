@@ -2,85 +2,158 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login - Sofia's Homepage</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .login-container {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 300px;
-        }
-        h2 { color: #333; margin-bottom: 20px; }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #77a4f7;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s;
-        }
-        button:hover { background-color: #5a8bd6; }
-        .error { color: red; font-size: 14px; margin-top: 10px; display: none; }
-        .register-link { margin-top: 15px; font-size: 12px; color: #666; }
-    </style>
-</head>
+    <title>Personal Homepage</title>
+    <link rel="stylesheet" href="style.css"> 
+	
 <body>
 
-    <div class="login-container">
-        <h2>Welcome Back</h2>
-        <input type="text" id="username" placeholder="Username (sofia)">
-        <input type="password" id="password" placeholder="Password (1234)">
-        <button onclick="attemptLogin()">Log In</button>
-        <p id="errorMsg" class="error">Incorrect username or password!</p>
-        
-        <div class="register-link">
-            <p>Don't have an account? <a href="#" onclick="alert('In a real app, this would open a registration form.')">Sign Up</a></p>
+<header class="header">
+    <div class="tab-bar">
+        <div class="controls">
+            <span class="circle red"></span>
+            <span class="circle yellow"></span>
+            <span class="circle green"></span>
         </div>
+
+        <p>New Tab</p>
+
+        <button id="logoutBtn" class="logout-btn">Sign Out</button>
+    </div>
+</header>
+
+<section class="welcome-box">
+    <h1>Welcome.</h1>
+    <h3>Sofia Trinity Pagaran</h3>
+    <p>What is our activity for today?</p>
+
+    <!-- Hidden description -->
+    <p id="description" class="hidden">
+        This website is a collection of my favorite artworks, memories,
+        activities, and personal projects. Feel free to explore and
+        enjoy the experience!
+    </p>
+
+    <a href="#" class="read-more" id="readMoreBtn">Read More</a>
+</section>
+
+<section class="main-content">
+
+    <div class="art-liked card">
+        <p>Duckstreet<br>game</p> 
+		<a href="https://duckstreet.net/">
+        <img src="chucken.jpg" alt="cat drawing" height="80%" width="50%">
+		</a>
     </div>
 
-    <script>
-        function attemptLogin() {
-            const user = document.getElementById('username').value;
-            const pass = document.getElementById('password').value;
-            const errorMsg = document.getElementById('errorMsg');
+    <div class="middle-art card"> 
+		<p>You received a text from "Sofie<3".</p> 
+		<a href="https://www.educaplay.com/types-of-activities/froggy-jumps.html">
+        <img src="Mini Doodle.jpg" alt="froggy" height="86%" width="50%">
+		</a>
+    </div>
 
-            // --- SIMULATED DATABASE ---
-            // In a real app, this would check a server. 
-            // Here we check if the user is "sofia" and pass is "1234"
-            if (user === "sofia" && pass === "1234") {
-                // Save login status to browser memory
-                localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('userName', user);
-                
-                // Redirect to homepage
-                window.location.href = "homepage.html";
-            } else {
-                // Show error
-                errorMsg.style.display = 'block';
-            }
-        }
-    </script>
+    <div class="recent-searches">
+        <h3>Recent Searches</h3>
+       <a href="personal_album.html"> <button>🔍 Personal</button></a>
+       <a href="Education_Album.html"> <button>🔍 Education</button></a>
+       <a href="collection_album.html"> <button>❤️ Collection</button></a>
+       <a href="Family_album.html"> <button>▶️ Family</button></a>
+    </div>
+
+    <div class="photography card"> 
+		<p>Pinterest</p>
+		<a href="https://www.pinterest.com/search/pins/?q=art&rs=typed">
+        <img src="elgatooo.jpg" alt="camera" height="80%" width="50%"> 
+		</a>
+    </div>
+
+</section>
+
+<div class="view-more">
+    <button id="viewMoreBtn">View More</button>
+
+    <div id="extraButtons">
+        <a href="https://number.toys/"><button class="extra-btn">Sudoku</button><a/> 
+		
+        <a href="https://card.toys/"><button class="extra-btn">Solitare</button> <a/> 
+		
+        <a href="https://cruel.toys/maze/"><button class="extra-btn">Cruel Maze</button> <a/> 
+		
+        <button id="hideBtn">Hide It Back</button>
+    </div>
+</div>
+
+<footer>
+    <a href="#">Personal Website ⭐</a>
+</footer>
+<script>
+
+    const viewMoreBtn = document.getElementById("viewMoreBtn");
+    const hideBtn = document.getElementById("hideBtn");
+    const extraButtons = document.getElementById("extraButtons");
+
+	const logoutBtn = document.getElementById("logoutBtn");
+
+    viewMoreBtn.addEventListener("click", function() {
+        extraButtons.classList.remove("hidden");
+        viewMoreBtn.style.display = "none";
+    });
+
+    hideBtn.addEventListener("click", function() {
+        extraButtons.classList.add("hidden");
+        viewMoreBtn.style.display = "block";
+    });
+
+	const readMoreBtn = document.getElementById("readMoreBtn");
+	const description = document.getElementById("description");
+
+	readMoreBtn.addEventListener("click", function(e) {
+    e.preventDefault(); // prevents page from jumping
+
+    if (description.classList.contains("hidden")) {
+        description.classList.remove("hidden");
+        readMoreBtn.textContent = "Go Back";
+    } else {
+        description.classList.add("hidden");
+        readMoreBtn.textContent = "Read More";
+    }
+	});
+	
+
+	logoutBtn.addEventListener("click", function(){
+
+    document.body.innerHTML = `
+    <div style="
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        font-family:Arial;
+        font-size:28px;
+        background:#77a4f7;
+        animation:fade 1s ease;
+    ">
+        Signing out...
+    </div>
+    `;
+
+    setTimeout(function(){
+        window.location.href = "login_signup.html";
+    },2000);
+
+});
+</script>
+
+
+
 </body>
+
 </html>
+
+
+
+
+
+
+
+
