@@ -3,57 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Login - Sofia's Homepage</title>
+    <link rel="stylesheet" href="theme.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .login-container {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 300px;
-        }
-        h2 { color: #333; margin-bottom: 20px; }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #77a4f7;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s;
-        }
-        button:hover { background-color: #5a8bd6; }
-        .error { color: red; font-size: 14px; margin-top: 10px; display: none; }
-        .register-link { margin-top: 15px; font-size: 12px; color: #666; }
+        body { display: flex; justify-content: center; align-items: center; }
+        .login-container { text-align: center; width: 320px; }
+        .error { color: #FF6B6B; font-size: 14px; margin-top: 10px; display: none; font-weight: bold; }
+        .register-link { margin-top: 20px; font-size: 13px; }
+        .register-link a { color: var(--purple-accent); font-weight: bold; }
     </style>
 </head>
 <body>
 
     <div class="login-container">
-        <h2>Welcome Back</h2>
+        <h2>✨ Welcome Back ✨</h2>
         <input type="text" id="username" placeholder="Username (sofia)">
         <input type="password" id="password" placeholder="Password (1234)">
         <button onclick="attemptLogin()">Log In</button>
-        <p id="errorMsg" class="error">Incorrect username or password!</p>
+        <p id="errorMsg" class="error">❌ Incorrect username or password!</p>
         
         <div class="register-link">
             <p>Don't have an account? <a href="#" onclick="alert('In a real app, this would open a registration form.')">Sign Up</a></p>

@@ -1,0 +1,287 @@
+/* Pastel Pink Fantasy Theme */
+:root {
+    /* Primary Pinks */
+    --pink-light: #FFD4E5;
+    --pink-main: #FFC0DB;
+    --pink-soft: #FFB3D9;
+    --pink-rose: #FF99CC;
+    --pink-deep: #FF88CC;
+    
+    /* Accent Colors */
+    --yellow-sand: #F7DC6F;
+    --purple-accent: #9B5BA5;
+    --gold-accent: #FFD700;
+    --white-main: #FFFFFF;
+    --white-soft: #F5F5F5;
+    
+    /* Gradients */
+    --gradient-pink: linear-gradient(135deg, #FFD4E5 0%, #FFC0DB 100%);
+    --gradient-sky: linear-gradient(to bottom, #FFE8F0 0%, #FFD4E5 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: var(--gradient-pink);
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Headers & Typography */
+h1, h2, h3 {
+    color: #7c3f5a;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+a {
+    color: #9B5BA5;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #7c3f5a;
+    text-decoration: underline;
+}
+
+/* Cards & Containers */
+.card, .welcome-box, .photo, 
+.gallery, .login-container,
+.wrapper {
+    background: var(--white-soft);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(255, 192, 219, 0.3);
+    transition: all 0.3s ease;
+}
+
+.card:hover, .photo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(155, 91, 165, 0.2);
+}
+
+/* Welcome/Hero Sections */
+.welcome-box {
+    background: linear-gradient(135deg, #FFE8F0 0%, #FFC0DB 100%);
+    padding: 40px;
+    margin: 30px auto;
+    max-width: 85%;
+    text-align: center;
+}
+
+.welcome-box h1 {
+    color: #7c3f5a;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.welcome-box h3 {
+    color: #9B5BA5;
+    font-size: 1.8em;
+}
+
+.welcome-box p {
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Buttons */
+button, .btn {
+    background: var(--purple-accent);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(155, 91, 165, 0.2);
+}
+
+button:hover, .btn:hover {
+    background: #7c3f5a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(155, 91, 165, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Input Fields */
+input, textarea {
+    background: var(--white-main);
+    border: 2px solid var(--pink-soft);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 1em;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--purple-accent);
+    box-shadow: 0 0 10px rgba(155, 91, 165, 0.3);
+    background: #FFFBFE;
+}
+
+input::placeholder {
+    color: #B0B0B0;
+}
+
+/* Gallery & Images */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+}
+
+.photo {
+    background: var(--white-soft);
+    padding: 12px;
+    border: 2px solid var(--pink-light);
+    overflow: hidden;
+}
+
+.photo img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Header/Tab Bar */
+.tab-bar {
+    background: linear-gradient(to right, #FFE8F0, #FFC0DB);
+    border-bottom: 3px solid var(--purple-accent);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+}
+
+.circle {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.red { background: #FF6B6B; }
+.yellow { background: var(--yellow-sand); }
+.green { background: #51CF66; }
+
+/* Recent Searches/Menu Buttons */
+.recent-searches button {
+    background: var(--pink-soft);
+    color: #7c3f5a;
+    border: 2px solid var(--pink-main);
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.recent-searches button:hover {
+    background: var(--pink-main);
+    transform: translateX(5px);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(to right, #FFE8F0, #FFC0DB);
+    padding: 30px;
+    text-align: center;
+    border-top: 3px solid var(--purple-accent);
+    margin-top: 50px;
+}
+
+footer a {
+    color: #7c3f5a;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* Special Elements */
+.hidden {
+    display: none;
+}
+
+.read-more {
+    color: var(--purple-accent);
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.read-more:hover {
+    color: #7c3f5a;
+}
+
+/* Login/Auth Elements */
+.login-container, .wrapper {
+    background: var(--white-soft);
+    padding: 30px;
+    border: 2px solid var(--pink-main);
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.login-container h2, .wrapper h1 {
+    color: var(--purple-accent);
+    margin-bottom: 25px;
+}
+
+/* Logout Button */
+.logout-btn {
+    background: #FF6B6B;
+    padding: 8px 16px;
+    font-size: 0.9em;
+    border-radius: 8px;
+    float: right;
+    margin-top: 10px;
+}
+
+.logout-btn:hover {
+    background: #E63946;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .welcome-box {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .gallery {
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+}
