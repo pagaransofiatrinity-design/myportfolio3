@@ -1,13 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Home</title>
-    <link rel="stylesheet" href="theme.css">
-    <style>
-        h1 { text-align: center; margin-top: 50px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome — Sofia's World</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .welcome-screen {
+      text-align: center;
+      padding: 48px 40px;
+      background: #FFF5FA;
+      border: 3px solid #FF80B4;
+      box-shadow: 6px 6px 0 #E8608A;
+      max-width: 480px;
+    }
+    .welcome-screen h1 {
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+    .welcome-screen p {
+      font-family: 'VT323', monospace;
+      font-size: 1.3rem;
+      margin: 12px 0;
+    }
+    .welcome-screen a {
+      display: inline-block;
+      margin-top: 24px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.5rem;
+      padding: 14px 24px;
+      background: #7C3AED;
+      color: white;
+      border: 3px solid #5B21B6;
+      box-shadow: 4px 4px 0 #3D0070;
+      transition: all 0.1s;
+    }
+    .welcome-screen a:hover {
+      background: #FF80B4;
+      border-color: #E8608A;
+      text-decoration: none;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-    <h1>🎉 Welcome! You are logged in 🎉</h1>
+  <div class="welcome-screen">
+    <h1>🎉 YOU ARE<br>LOGGED IN! 🎉</h1>
+    <p>Welcome back, adventurer!</p>
+    <p>Your world awaits... ✨</p>
+    <a href="index.html">▶ ENTER THE WORLD</a>
+  </div>
 </body>
 </html>

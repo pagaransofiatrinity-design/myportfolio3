@@ -1,48 +1,99 @@
-```html
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-<title>Education Album</title>
-<link rel="stylesheet" href="theme.css">
-<style>
-/* Additional page-specific styles */
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education Album — Sofia's World</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .photo { position: relative; overflow: visible; }
+    .photo::after {
+      content: '💾';
+      position: absolute;
+      bottom: -8px; right: -8px;
+      font-size: 1rem; opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .photo:hover::after { opacity: 1; }
+    .gallery-section-title {
+      width: 100%;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: #7C3F5A;
+      padding: 8px 16px;
+      background: #FFF0F7;
+      border: 3px solid #FFBDD8;
+      box-shadow: 3px 3px 0 #E8A0C0;
+      text-align: center;
+      letter-spacing: 2px;
+      margin: 8px 0;
+    }
+    .timeline-badge {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+      background: #7C3AED;
+      color: white;
+      padding: 6px 10px;
+      border: 2px solid #5B21B6;
+      box-shadow: 2px 2px 0 #3D0070;
+      display: inline-block;
+      margin: 4px;
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>Education Album</h1>
+  <div class="page-header">
+    <div>
+      <h1>🎓 EDUCATION ALBUM</h1>
+      <div style="font-family:'VT323',monospace;font-size:1.1rem;color:#FFB3CC;margin-top:4px;">
+        From Kinder to Junior High ✏️
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+      <a href="education.html">◀ BACK TO INTRO</a>
+      <a href="index.html">🏠 HOMEPAGE</a>
+    </div>
+  </div>
 
-<p>
-Welcome to my Education Album! I'm <b>Sofia Trinity C. Pagaran</b> and here are my old pictures of myself learning from Kinder to Junior High.
-</p>
+  <div class="pixel-divider"></div>
 
-<div class="gallery">
+  <div class="album-intro">
+    <p>Welcome to my Education Album! I'm <b>Sofia Trinity C. Pagaran</b> and here are my old pictures of myself learning from Kinder to Junior High. 📚</p>
+    <div style="margin-top:16px;">
+      <span class="timeline-badge">KINDER</span>
+      <span class="timeline-badge">ELEM</span>
+      <span class="timeline-badge">JHS</span>
+      <span class="timeline-badge">SHS ▸</span>
+    </div>
+  </div>
 
-<div class="photo"><img src="education/m1.jpg"></div>
-<div class="photo"><img src="education/m2.jpg"></div>
-<div class="photo"><img src="education/m3.jpg"></div>
-<div class="photo"><img src="education/m4.jpg"></div>
-<div class="photo"><img src="education/m5.jpg"></div>
-<div class="photo"><img src="education/m6.jpg"></div>
-<div class="photo"><img src="education/m7.jpg"></div>
-<div class="photo"><img src="education/m8.jpg"></div>
-<div class="photo"><img src="education/m9.jpg"></div>
-<div class="photo"><img src="education/m11.jpg"></div>
-<div class="photo"><img src="education/m12.jpg"></div>
-<div class="photo"><img src="education/m13.jpg"></div>
-<div class="photo"><img src="education/m14.jpg"></div>
-<div class="photo"><img src="education/m15.jpg"></div>
+  <div class="gallery">
 
-</div>
+    <div class="gallery-section-title">✦ — SCHOOL MEMORIES — ✦</div>
 
-<a href="education.html">Back to First Page</a>
-<a href="https://pagaransofiatrinity-design.github.io/myportfolio3/">Back to Homepage</a>
+    <div class="photo"><img src="education/m1.jpg"  alt="Education 1"></div>
+    <div class="photo"><img src="education/m2.jpg"  alt="Education 2"></div>
+    <div class="photo"><img src="education/m3.jpg"  alt="Education 3"></div>
+    <div class="photo"><img src="education/m4.jpg"  alt="Education 4"></div>
+    <div class="photo"><img src="education/m5.jpg"  alt="Education 5"></div>
+    <div class="photo"><img src="education/m6.jpg"  alt="Education 6"></div>
+    <div class="photo"><img src="education/m7.jpg"  alt="Education 7"></div>
+    <div class="photo"><img src="education/m8.jpg"  alt="Education 8"></div>
+    <div class="photo"><img src="education/m9.jpg"  alt="Education 9"></div>
+    <div class="photo"><img src="education/m11.jpg" alt="Education 11"></div>
+    <div class="photo"><img src="education/m12.jpg" alt="Education 12"></div>
+    <div class="photo"><img src="education/m13.jpg" alt="Education 13"></div>
+    <div class="photo"><img src="education/m14.jpg" alt="Education 14"></div>
+    <div class="photo"><img src="education/m15.jpg" alt="Education 15"></div>
+  </div>
+
+  <div class="pixel-divider"></div>
+
+  <footer>
+    <a href="https://pagaransofiatrinity-design.github.io/myportfolio3/">✦ BACK TO MAIN PORTFOLIO ✦</a>
+    <p style="font-family:'Press Start 2P';font-size:0.4rem;color:#9B59B6;margin-top:12px;">© 2025 SOFIA TRINITY PAGARAN</p>
+  </footer>
 
 </body>
 </html>
-```
-
-
-

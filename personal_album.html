@@ -1,57 +1,94 @@
-```html
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-<title>Collection Album</title>
-<link rel="stylesheet" href="theme.css">
-<style>
-/* Additional page-specific styles */
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Album — Sofia's World</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .photo { position: relative; overflow: visible; }
+    .photo::after {
+      content: '💾';
+      position: absolute;
+      bottom: -8px; right: -8px;
+      font-size: 1rem; opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .photo:hover::after { opacity: 1; }
+    .gallery-section-title {
+      width: 100%;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: #7C3F5A;
+      padding: 8px 16px;
+      background: #FFF0F7;
+      border: 3px solid #FFBDD8;
+      box-shadow: 3px 3px 0 #E8A0C0;
+      text-align: center;
+      letter-spacing: 2px;
+      margin: 8px 0;
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>Collection Album</h1>
+  <div class="page-header">
+    <div>
+      <h1>🌸 PERSONAL ALBUM</h1>
+      <div style="font-family:'VT323',monospace;font-size:1.1rem;color:#FFB3CC;margin-top:4px;">
+        Photos & memories from life ✨
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+      <a href="collection.html">◀ BACK TO INTRO</a>
+      <a href="index.html">🏠 HOMEPAGE</a>
+    </div>
+  </div>
 
-<p>
-Welcome to my Collection Album! I'm <b>Sofia Trinity C. Pagaran</b> and here are some personal photos and memories from different parts of my life.
-</p>
+  <div class="pixel-divider"></div>
 
-<div class="gallery">
+  <div class="album-intro">
+    <p>Welcome to my Personal Album! I'm <b>Sofia Trinity C. Pagaran</b> and here are some personal photos and memories from different parts of my life. 💕</p>
+  </div>
 
-<div class="photo"><img src="personal/baby.jpg"></div>
-<div class="photo"><img src="family/Pic1.jpg"></div>
+  <div class="gallery">
 
-<div class="photo"><img src="personal/m1.jpg"></div>
-<div class="photo"><img src="personal/m2.jpg"></div>
-<div class="photo"><img src="personal/m3.jpg"></div>
-<div class="photo"><img src="personal/m4.jpg"></div>
-<div class="photo"><img src="personal/m5.jpg"></div>
-<div class="photo"><img src="personal/m6.jpg"></div>
-<div class="photo"><img src="personal/m7.jpg"></div>
-<div class="photo"><img src="personal/m8.jpg"></div>
-<div class="photo"><img src="personal/m9.jpg"></div>
-<div class="photo"><img src="personal/m10.jpg"></div>
-<div class="photo"><img src="personal/m11.jpg"></div>
-<div class="photo"><img src="personal/m12.jpg"></div>
-<div class="photo"><img src="personal/me1.jpg"></div>
+    <div class="gallery-section-title">✦ — BABY & EARLY MEMORIES — ✦</div>
 
-<div class="photo"><img src="education/m1.jpg"></div>
-<div class="photo"><img src="education/m2.jpg"></div>
-<div class="photo"><img src="education/m3.jpg"></div>
-<div class="photo"><img src="education/m4.jpg"></div>
-<div class="photo"><img src="education/m5.jpg"></div>
+    <div class="photo"><img src="personal/baby.jpg" alt="Baby"></div>
+    <div class="photo"><img src="family/Pic1.jpg"   alt="Family Pic"></div>
 
-</div>
+    <div class="gallery-section-title">✦ — PERSONAL MOMENTS — ✦</div>
 
-<a href="collection.html">Back to First Page</a>
-<a href="https://pagaransofiatrinity-design.github.io/myportfolio3/">Back to Homepage</a>
+    <div class="photo"><img src="personal/m1.jpg"   alt="Personal 1"></div>
+    <div class="photo"><img src="personal/m2.jpg"   alt="Personal 2"></div>
+    <div class="photo"><img src="personal/m3.jpg"   alt="Personal 3"></div>
+    <div class="photo"><img src="personal/m4.jpg"   alt="Personal 4"></div>
+    <div class="photo"><img src="personal/m5.jpg"   alt="Personal 5"></div>
+    <div class="photo"><img src="personal/m6.jpg"   alt="Personal 6"></div>
+    <div class="photo"><img src="personal/m7.jpg"   alt="Personal 7"></div>
+    <div class="photo"><img src="personal/m8.jpg"   alt="Personal 8"></div>
+    <div class="photo"><img src="personal/m9.jpg"   alt="Personal 9"></div>
+    <div class="photo"><img src="personal/m10.jpg"  alt="Personal 10"></div>
+    <div class="photo"><img src="personal/m11.jpg"  alt="Personal 11"></div>
+    <div class="photo"><img src="personal/m12.jpg"  alt="Personal 12"></div>
+    <div class="photo"><img src="personal/me1.jpg"  alt="Me"></div>
+
+    <div class="gallery-section-title">✦ — SCHOOL SNAPSHOTS — ✦</div>
+
+    <div class="photo"><img src="education/m1.jpg"  alt="Edu 1"></div>
+    <div class="photo"><img src="education/m2.jpg"  alt="Edu 2"></div>
+    <div class="photo"><img src="education/m3.jpg"  alt="Edu 3"></div>
+    <div class="photo"><img src="education/m4.jpg"  alt="Edu 4"></div>
+    <div class="photo"><img src="education/m5.jpg"  alt="Edu 5"></div>
+  </div>
+
+  <div class="pixel-divider"></div>
+
+  <footer>
+    <a href="https://pagaransofiatrinity-design.github.io/myportfolio3/">✦ BACK TO MAIN PORTFOLIO ✦</a>
+    <p style="font-family:'Press Start 2P';font-size:0.4rem;color:#9B59B6;margin-top:12px;">© 2025 SOFIA TRINITY PAGARAN</p>
+  </footer>
 
 </body>
 </html>
-```
-
-
-
-

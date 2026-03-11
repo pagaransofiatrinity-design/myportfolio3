@@ -1,49 +1,101 @@
-```html
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-<title>Family Album</title>
-<link rel="stylesheet" href="theme.css">
-<style>
-/* Additional page-specific styles */
-</style>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Album — Sofia's World</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    .page-back-nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .album-count {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.5rem;
+      color: #F5C842;
+      background: #1A0A20;
+      padding: 8px 14px;
+      border: 2px solid #F5C842;
+    }
+    /* Photo hover label */
+    .photo { position: relative; overflow: visible; }
+    .photo::after {
+      content: '💾';
+      position: absolute;
+      bottom: -8px;
+      right: -8px;
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .photo:hover::after { opacity: 1; }
 
+    .gallery-section-title {
+      width: 100%;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: #7C3F5A;
+      padding: 8px 16px;
+      background: #FFF0F7;
+      border: 3px solid #FFBDD8;
+      box-shadow: 3px 3px 0 #E8A0C0;
+      text-align: center;
+      letter-spacing: 2px;
+      margin: 8px 0;
+    }
+  </style>
+</head>
 <body>
 
-<h1>Family Album</h1>
+  <div class="page-header">
+    <div>
+      <h1>📷 FAMILY ALBUM</h1>
+      <div style="font-family:'VT323',monospace;font-size:1.1rem;color:#FFB3CC;margin-top:4px;">
+        Favorite moments with the fam ♡
+      </div>
+    </div>
+    <div class="page-back-nav">
+      <a href="family.html">◀ BACK TO INTRO</a>
+      <a href="index.html">🏠 HOMEPAGE</a>
+    </div>
+  </div>
 
-<p>
-Welcome to my Family Album! I'm <b>Sofia Trinity C. Pagaran</b> and here are my favorite pictures with my family.
-</p>
+  <div class="pixel-divider"></div>
 
-<div class="gallery">
+  <div class="album-intro">
+    <p>Welcome to my Family Album! I'm <b>Sofia Trinity C. Pagaran</b> and here are my favorite pictures with my family. 🌸</p>
+  </div>
 
-<div class="photo"><img src="family/daddy.jpg"></div>
-<div class="photo"><img src="family/insans1.jpg"></div>
-<div class="photo"><img src="family/jong.jpg"></div>
-<div class="photo"><img src="family/kuya.jpg"></div>
-<div class="photo"><img src="family/lolo.jpg"></div>
-<div class="photo"><img src="family/mamianddads.jpg"></div>
-<div class="photo"><img src="family/mommy.jpg"></div>
-<div class="photo"><img src="family/Pic1.jpg"></div>
-<div class="photo"><img src="family/pic2.jpg"></div>
-<div class="photo"><img src="family/pic3.jpg"></div>
-<div class="photo"><img src="family/pic4.jpg"></div>
-<div class="photo"><img src="family/pic5.jpg"></div>
-<div class="photo"><img src="family/pic6.jpg"></div>
-<div class="photo"><img src="family/pic7.jpg"></div>
-<div class="photo"><img src="family/pic8.jpg"></div>
+  <div class="gallery">
 
-</div>
+    <div class="gallery-section-title">✦ — FAMILY PHOTOS — ✦</div>
 
-<a href="family.html">Back to First Page</a>
-<a href="https://pagaransofiatrinity-design.github.io/myportfolio3/">Back to Homepage</a>
+    <div class="photo"><img src="family/daddy.jpg"      alt="Daddy"></div>
+    <div class="photo"><img src="family/insans1.jpg"    alt="Insans"></div>
+    <div class="photo"><img src="family/jong.jpg"       alt="Jong"></div>
+    <div class="photo"><img src="family/kuya.jpg"       alt="Kuya"></div>
+    <div class="photo"><img src="family/lolo.jpg"       alt="Lolo"></div>
+    <div class="photo"><img src="family/mamianddads.jpg" alt="Mami and Dads"></div>
+    <div class="photo"><img src="family/mommy.jpg"      alt="Mommy"></div>
+    <div class="photo"><img src="family/Pic1.jpg"       alt="Family Pic 1"></div>
+    <div class="photo"><img src="family/pic2.jpg"       alt="Family Pic 2"></div>
+    <div class="photo"><img src="family/pic3.jpg"       alt="Family Pic 3"></div>
+    <div class="photo"><img src="family/pic4.jpg"       alt="Family Pic 4"></div>
+    <div class="photo"><img src="family/pic5.jpg"       alt="Family Pic 5"></div>
+    <div class="photo"><img src="family/pic6.jpg"       alt="Family Pic 6"></div>
+    <div class="photo"><img src="family/pic7.jpg"       alt="Family Pic 7"></div>
+    <div class="photo"><img src="family/pic8.jpg"       alt="Family Pic 8"></div>
+  </div>
+
+  <div class="pixel-divider"></div>
+
+  <footer>
+    <a href="https://pagaransofiatrinity-design.github.io/myportfolio3/">✦ BACK TO MAIN PORTFOLIO ✦</a>
+    <p style="font-family:'Press Start 2P';font-size:0.4rem;color:#9B59B6;margin-top:12px;">© 2025 SOFIA TRINITY PAGARAN</p>
+  </footer>
 
 </body>
 </html>
-```
-
-
-

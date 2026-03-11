@@ -1,287 +1,425 @@
-/* Pastel Pink Fantasy Theme */
+/* ══════════════════════════════════════════════════════
+   PIXEL FANTASY THEME — Sofia's Homepage
+   16-bit Pastel Pink Dreamscape
+══════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&family=Nunito:wght@400;600;700;900&display=swap');
+
+/* ── CSS Variables ─────────────────────────────────── */
 :root {
-    /* Primary Pinks */
-    --pink-light: #FFD4E5;
-    --pink-main: #FFC0DB;
-    --pink-soft: #FFB3D9;
-    --pink-rose: #FF99CC;
-    --pink-deep: #FF88CC;
-    
-    /* Accent Colors */
-    --yellow-sand: #F7DC6F;
-    --purple-accent: #9B5BA5;
-    --gold-accent: #FFD700;
-    --white-main: #FFFFFF;
-    --white-soft: #F5F5F5;
-    
-    /* Gradients */
-    --gradient-pink: linear-gradient(135deg, #FFD4E5 0%, #FFC0DB 100%);
-    --gradient-sky: linear-gradient(to bottom, #FFE8F0 0%, #FFD4E5 100%);
+  /* Pinks */
+  --pink-sky:    #FFD4E5;
+  --pink-light:  #FFBDD8;
+  --pink-main:   #FFA0C8;
+  --pink-rose:   #FF80B4;
+  --pink-deep:   #E8608A;
+  --pink-foliage:#FFB3CC;
+  --pink-wave:   #F09AB8;
+
+  /* Accents */
+  --purple-sword: #7C3AED;
+  --purple-mid:   #9B59B6;
+  --purple-dark:  #5B2C6F;
+  --gold-hill:    #F5C842;
+  --gold-chest:   #FFD700;
+  --gold-dark:    #C9A227;
+  --brown-tree:   #8B5E3C;
+  --brown-dark:   #5C3D1E;
+  --white-pure:   #FFFFFF;
+  --white-cloud:  #FFF5F8;
+  --black-pixel:  #1A0A20;
+
+  /* UI Colors */
+  --ui-bg:        #FFF0F7;
+  --ui-card:      #FFFFFF;
+  --ui-border:    #E8A0C0;
+  --ui-shadow:    #C06090;
+  --text-dark:    #3D1A2E;
+  --text-mid:     #7C3F5A;
+  --text-light:   #B07090;
+
+  /* Pixel border sizes */
+  --px: 3px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ── Reset & Base ──────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
 }
+
+html { scroll-behavior: smooth; }
 
 body {
-    font-family: "Trebuchet MS", Arial, sans-serif;
-    background: var(--gradient-pink);
-    color: #333;
-    min-height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--pink-sky);
+  background-image:
+    linear-gradient(135deg, #FFE8F3 0%, #FFD4E5 40%, #FFBDD8 100%);
+  color: var(--text-dark);
+  min-height: 100vh;
+  image-rendering: pixelated;
 }
 
-/* Headers & Typography */
-h1, h2, h3 {
-    color: #7c3f5a;
-    font-weight: bold;
+/* Scanline overlay on body */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(255,180,210,0.04) 3px,
+    rgba(255,180,210,0.04) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
 }
 
-h1 {
-    font-size: 2.5em;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+/* ── Typography ────────────────────────────────────── */
+h1, h2 {
+  font-family: 'Press Start 2P', monospace;
+  color: var(--text-dark);
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+h1 { font-size: clamp(1rem, 3vw, 1.5rem); }
+h2 { font-size: clamp(0.8rem, 2vw, 1.1rem); }
+
+h3 {
+  font-family: 'VT323', monospace;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  color: var(--purple-mid);
+  letter-spacing: 2px;
+}
+
+p, li {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-mid);
 }
 
 a {
-    color: #9B5BA5;
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: var(--purple-sword);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.2s;
+}
+a:hover { color: var(--pink-deep); }
+
+/* ── Pixel Border Utility ──────────────────────────── */
+.pixel-border {
+  box-shadow:
+    0 0 0 var(--px) var(--ui-border),
+    var(--px) var(--px) 0 var(--px) var(--ui-shadow);
+  border-radius: 0 !important;
 }
 
-a:hover {
-    color: #7c3f5a;
-    text-decoration: underline;
+.pixel-border-purple {
+  box-shadow:
+    0 0 0 var(--px) var(--purple-mid),
+    var(--px) var(--px) 0 var(--px) var(--purple-dark);
+  border-radius: 0 !important;
 }
 
-/* Cards & Containers */
-.card, .welcome-box, .photo, 
-.gallery, .login-container,
-.wrapper {
-    background: var(--white-soft);
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(255, 192, 219, 0.3);
-    transition: all 0.3s ease;
+/* ── Cards & Containers ────────────────────────────── */
+.card, .photo, .gallery, .welcome-box, .login-container, .wrapper {
+  background: var(--ui-card);
+  border: var(--px) solid var(--ui-border);
+  box-shadow: 4px 4px 0 var(--ui-shadow);
+  border-radius: 0;
+  transition: transform 0.15s, box-shadow 0.15s;
 }
 
 .card:hover, .photo:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(155, 91, 165, 0.2);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ui-shadow);
 }
 
-/* Welcome/Hero Sections */
-.welcome-box {
-    background: linear-gradient(135deg, #FFE8F0 0%, #FFC0DB 100%);
-    padding: 40px;
-    margin: 30px auto;
-    max-width: 85%;
-    text-align: center;
-}
-
-.welcome-box h1 {
-    color: #7c3f5a;
-    font-size: 3em;
-    margin-bottom: 10px;
-}
-
-.welcome-box h3 {
-    color: #9B5BA5;
-    font-size: 1.8em;
-}
-
-.welcome-box p {
-    color: #555;
-    font-size: 1.1em;
-    line-height: 1.6;
-}
-
-/* Buttons */
+/* ── Buttons ───────────────────────────────────────── */
 button, .btn {
-    background: var(--purple-accent);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 12px 24px;
-    font-size: 1em;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(155, 91, 165, 0.2);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
+  color: var(--white-pure);
+  background: var(--purple-sword);
+  border: var(--px) solid var(--purple-dark);
+  box-shadow: 3px 3px 0 var(--purple-dark);
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 0;
+  transition: transform 0.1s, box-shadow 0.1s;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 button:hover, .btn:hover {
-    background: #7c3f5a;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(155, 91, 165, 0.4);
+  background: var(--pink-deep);
+  border-color: var(--text-dark);
+  box-shadow: 4px 4px 0 var(--text-dark);
 }
 
-button:active {
-    transform: translateY(0);
+button:active, .btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
 }
 
-/* Input Fields */
-input, textarea {
-    background: var(--white-main);
-    border: 2px solid var(--pink-soft);
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 1em;
-    color: #333;
-    transition: all 0.3s ease;
+/* ── Inputs ────────────────────────────────────────── */
+input, textarea, select {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  background: var(--white-pure);
+  border: var(--px) solid var(--ui-border);
+  box-shadow: inset 2px 2px 0 #F0C0D8;
+  padding: 10px 14px;
+  border-radius: 0;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 input:focus, textarea:focus {
-    outline: none;
-    border-color: var(--purple-accent);
-    box-shadow: 0 0 10px rgba(155, 91, 165, 0.3);
-    background: #FFFBFE;
+  outline: none;
+  border-color: var(--purple-sword);
+  box-shadow: inset 2px 2px 0 #D0A0C0, 0 0 0 2px rgba(124,58,237,0.2);
 }
 
-input::placeholder {
-    color: #B0B0B0;
+input::placeholder { color: var(--text-light); }
+
+/* ── Welcome / Hero Box ────────────────────────────── */
+.welcome-box {
+  padding: 40px 32px;
+  margin: 24px auto;
+  max-width: 90%;
+  text-align: center;
+  background: linear-gradient(135deg, #FFF0F7 0%, #FFD4E5 100%);
+  border: var(--px) solid var(--pink-rose);
+  box-shadow: 6px 6px 0 var(--pink-wave);
 }
 
-/* Gallery & Images */
+.welcome-box h1 { color: var(--text-dark); margin-bottom: 8px; }
+.welcome-box h3 { color: var(--purple-mid); margin-bottom: 12px; }
+
+/* ── Gallery ───────────────────────────────────────── */
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .photo {
-    background: var(--white-soft);
-    padding: 12px;
-    border: 2px solid var(--pink-light);
-    overflow: hidden;
+  background: var(--white-pure);
+  padding: 10px;
+  border: var(--px) solid var(--pink-main);
+  box-shadow: 4px 4px 0 var(--pink-wave);
 }
 
 .photo img {
-    width: 200px;
-    height: auto;
-    border-radius: 8px;
-    display: block;
+  width: 180px;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  border: 2px solid var(--pink-light);
 }
 
-/* Header/Tab Bar */
+/* ── Header / Tab Bar ──────────────────────────────── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--text-dark);
+  border-bottom: var(--px) solid var(--purple-sword);
+}
+
 .tab-bar {
-    background: linear-gradient(to right, #FFE8F0, #FFC0DB);
-    border-bottom: 3px solid var(--purple-accent);
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
+  background: var(--text-dark);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: none;
 }
 
-.controls {
-    display: flex;
-    gap: 8px;
+.tab-bar p {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
+  color: var(--pink-light);
+  letter-spacing: 2px;
 }
+
+.controls { display: flex; gap: 6px; align-items: center; }
 
 .circle {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-right: 6px;
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.3);
 }
+.red    { background: #FF5F57; }
+.yellow { background: #FEBC2E; }
+.green  { background: #28C840; }
 
-.red { background: #FF6B6B; }
-.yellow { background: var(--yellow-sand); }
-.green { background: #51CF66; }
+/* ── Logout / Nav Buttons ──────────────────────────── */
+.logout-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.45rem;
+  background: #FF5F57;
+  border-color: #C0392B;
+  box-shadow: 2px 2px 0 #C0392B;
+  padding: 8px 12px;
+  margin-left: auto;
+}
+.logout-btn:hover { background: #E63946; }
 
-/* Recent Searches/Menu Buttons */
+/* ── Recent Searches / Menu ────────────────────────── */
+.recent-searches { padding: 16px; }
+.recent-searches h3 { margin-bottom: 12px; }
+
 .recent-searches button {
-    background: var(--pink-soft);
-    color: #7c3f5a;
-    border: 2px solid var(--pink-main);
-    width: 100%;
-    margin: 8px 0;
-    padding: 10px;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background: var(--pink-main);
+  border: var(--px) solid var(--pink-deep);
+  box-shadow: 3px 3px 0 var(--pink-wave);
+  color: var(--text-dark);
+  width: 100%;
+  margin: 6px 0;
+  padding: 10px 14px;
+  font-size: 0.5rem;
 }
 
 .recent-searches button:hover {
-    background: var(--pink-main);
-    transform: translateX(5px);
+  background: var(--pink-rose);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--pink-wave);
 }
 
-/* Footer */
+/* ── Footer ────────────────────────────────────────── */
 footer {
-    background: linear-gradient(to right, #FFE8F0, #FFC0DB);
-    padding: 30px;
-    text-align: center;
-    border-top: 3px solid var(--purple-accent);
-    margin-top: 50px;
+  background: var(--text-dark);
+  padding: 24px;
+  text-align: center;
+  border-top: var(--px) solid var(--purple-sword);
+  margin-top: 60px;
 }
 
 footer a {
-    color: #7c3f5a;
-    font-size: 1.1em;
-    font-weight: bold;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
+  color: var(--pink-light);
+  letter-spacing: 2px;
 }
 
-/* Special Elements */
-.hidden {
-    display: none;
-}
+footer a:hover { color: var(--gold-chest); }
+
+/* ── Utility ───────────────────────────────────────── */
+.hidden { display: none !important; }
 
 .read-more {
-    color: var(--purple-accent);
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
+  color: var(--purple-sword);
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 12px;
+  border: 2px solid var(--purple-sword);
+  transition: all 0.2s;
 }
-
 .read-more:hover {
-    color: #7c3f5a;
+  background: var(--purple-sword);
+  color: white;
+  text-decoration: none;
 }
 
-/* Login/Auth Elements */
+/* ── Login Container ───────────────────────────────── */
 .login-container, .wrapper {
-    background: var(--white-soft);
-    padding: 30px;
-    border: 2px solid var(--pink-main);
-    max-width: 420px;
-    margin: 0 auto;
+  padding: 36px;
+  max-width: 400px;
+  margin: 0 auto;
+  border: var(--px) solid var(--pink-main);
+  box-shadow: 6px 6px 0 var(--pink-wave);
+  background: var(--white-cloud);
 }
 
-.login-container h2, .wrapper h1 {
-    color: var(--purple-accent);
-    margin-bottom: 25px;
+/* ── Page Header Band ──────────────────────────────── */
+.page-header {
+  background: var(--text-dark);
+  padding: 24px 32px;
+  border-bottom: 4px solid var(--purple-sword);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-/* Logout Button */
-.logout-btn {
-    background: #FF6B6B;
-    padding: 8px 16px;
-    font-size: 0.9em;
-    border-radius: 8px;
-    float: right;
-    margin-top: 10px;
+.page-header h1 {
+  color: var(--pink-light);
+  font-size: 0.8rem;
 }
 
-.logout-btn:hover {
-    background: #E63946;
+.page-header a {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5rem;
+  color: var(--gold-chest);
+  padding: 8px 14px;
+  border: 2px solid var(--gold-chest);
+  transition: all 0.2s;
+}
+.page-header a:hover {
+  background: var(--gold-chest);
+  color: var(--text-dark);
 }
 
-/* Responsive Adjustments */
+/* ── Album Page Body ───────────────────────────────── */
+.album-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 32px auto;
+  padding: 0 20px;
+}
+.album-intro p {
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  color: var(--text-mid);
+}
+.album-intro b { color: var(--purple-mid); }
+
+/* ── Pixel Divider ─────────────────────────────────── */
+.pixel-divider {
+  height: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--purple-sword) 0px,
+    var(--purple-sword) 12px,
+    var(--pink-main) 12px,
+    var(--pink-main) 24px,
+    var(--gold-chest) 24px,
+    var(--gold-chest) 36px,
+    var(--pink-rose) 36px,
+    var(--pink-rose) 48px
+  );
+  margin: 16px 0;
+}
+
+/* ── Pixel Sprite Icons ────────────────────────────── */
+.sprite-sword::before { content: '⚔️'; font-size: 1.2rem; }
+.sprite-star::before  { content: '⭐'; font-size: 1.2rem; }
+.sprite-gem::before   { content: '💎'; font-size: 1.2rem; }
+
+/* ── Responsive ────────────────────────────────────── */
 @media (max-width: 768px) {
-    .welcome-box {
-        margin: 20px;
-        padding: 20px;
-    }
-    
-    .gallery {
-        gap: 15px;
-        padding: 15px;
-    }
-    
-    .card {
-        padding: 15px;
-    }
+  h1 { font-size: 0.75rem; }
+  .welcome-box { margin: 12px; padding: 20px; }
+  .photo img { width: 140px; height: 110px; }
+  .tab-bar p { display: none; }
+}
+
+@media (max-width: 480px) {
+  button, .btn { font-size: 0.45rem; padding: 8px 12px; }
 }

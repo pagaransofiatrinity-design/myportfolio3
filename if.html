@@ -1,44 +1,273 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-	<title>Voting Eligibility</title>
-	<link rel="stylesheet" href="theme.css">
-	<style>
-		body { max-width: 600px; margin: 50px auto; padding: 20px; }
-		form { background: var(--white-soft); padding: 20px; margin: 20px 0; border-radius: 12px; }
-		input { width: 200px; }
-		button { margin-top: 10px; }
-		#result, #message, #output { margin-top: 15px; font-weight: bold; color: var(--purple-accent); }
-	</style>
-</head> 
-<body> 
-<h3>Voting Eligibility Checker</h3>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voting Eligibility — Sofia's World</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    body {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
 
-<form> 
-	Enter your age: 
-	<input type="number" id="age"> 
-	<button type="button" onclick="checkAge()">Check</button><br> 
-	</form>  
-<p id="result"></p>  
- 
+    .page-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.75rem;
+      color: #3D1A2E;
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #FFF0F7, #FFD4E5);
+      border: 3px solid #FF80B4;
+      box-shadow: 4px 4px 0 #E8608A;
+      margin-bottom: 24px;
+      letter-spacing: 2px;
+    }
 
-<form>
-	 Enter Password: 
-    <input type="password" id="password"> 
-    <button type="button" onclick="checkPassword()">Login</button> 
-	</form>  
+    .quest-card {
+      background: #FFF5FA;
+      border: 3px solid #FFBDD8;
+      box-shadow: 4px 4px 0 #E8A0C0;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
 
-<p id="message"></p> 
+    .quest-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px dashed #FFBDD8;
+    }
 
-<form>
-	 Enter your grade:  
-    <input type="text" id="grade"> 
-    <button type="button" onclick="evaluateGrade()">Check</button> 
-	</form>  
+    .quest-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
 
-   <p id="output"></p>
- 
- <script src="if.js"></script> 
+    .quest-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      color: #5B21B6;
+      letter-spacing: 1px;
+      line-height: 1.8;
+    }
 
-</body> 
+    .quest-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .quest-label {
+      font-family: 'VT323', monospace;
+      font-size: 1.2rem;
+      color: #7C3F5A;
+      white-space: nowrap;
+    }
+
+    .quest-input {
+      width: 120px !important;
+      flex-shrink: 0;
+      font-family: 'Press Start 2P', monospace !important;
+      font-size: 0.7rem !important;
+      text-align: center;
+    }
+
+    .quest-btn {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+      padding: 10px 16px;
+      white-space: nowrap;
+    }
+
+    .result-box {
+      margin-top: 14px;
+      padding: 12px 16px;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.5rem;
+      line-height: 2;
+      border: 3px solid transparent;
+      min-height: 20px;
+      transition: all 0.3s;
+    }
+
+    .result-box.success {
+      background: #F0FFF4;
+      border-color: #51CF66;
+      box-shadow: 3px 3px 0 #2F9E44;
+      color: #1A5C2E;
+    }
+
+    .result-box.fail {
+      background: #FFF5F5;
+      border-color: #FF6B6B;
+      box-shadow: 3px 3px 0 #C92A2A;
+      color: #7B1E1E;
+    }
+
+    .result-box.info {
+      background: #F3F0FF;
+      border-color: #7C3AED;
+      box-shadow: 3px 3px 0 #5B21B6;
+      color: #3D0070;
+    }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .back-link a {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.5rem;
+      color: #7C3AED;
+      padding: 12px 20px;
+      border: 3px solid #7C3AED;
+      box-shadow: 3px 3px 0 #5B21B6;
+      display: inline-block;
+      transition: all 0.1s;
+    }
+    .back-link a:hover {
+      background: #7C3AED;
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-title">
+    ⚔️ QUEST CHECKER ⚔️<br>
+    <span style="color:#FF80B4;font-size:0.5rem;">INTERACTIVE CHALLENGES</span>
+  </div>
+
+  <!-- QUEST 1: Voting Age -->
+  <div class="quest-card">
+    <div class="quest-header">
+      <div class="quest-icon">🗳️</div>
+      <div class="quest-title">QUEST 1<br>VOTING ELIGIBILITY</div>
+    </div>
+    <div class="quest-row">
+      <span class="quest-label">Enter your age:</span>
+      <input type="number" id="age" class="quest-input" placeholder="18" min="1" max="120">
+      <button class="quest-btn" onclick="checkAge()">CHECK ▶</button>
+    </div>
+    <div id="result" class="result-box"></div>
+  </div>
+
+  <!-- QUEST 2: Password -->
+  <div class="quest-card">
+    <div class="quest-header">
+      <div class="quest-icon">🔐</div>
+      <div class="quest-title">QUEST 2<br>SECRET PASSWORD</div>
+    </div>
+    <div class="quest-row">
+      <span class="quest-label">Enter password:</span>
+      <input type="password" id="password" class="quest-input" placeholder="••••">
+      <button class="quest-btn" onclick="checkPassword()">LOGIN ▶</button>
+    </div>
+    <div id="message" class="result-box"></div>
+  </div>
+
+  <!-- QUEST 3: Grade Evaluator -->
+  <div class="quest-card">
+    <div class="quest-header">
+      <div class="quest-icon">📊</div>
+      <div class="quest-title">QUEST 3<br>GRADE EVALUATOR</div>
+    </div>
+    <div class="quest-row">
+      <span class="quest-label">Enter your grade:</span>
+      <input type="text" id="grade" class="quest-input" placeholder="A / B / 90">
+      <button class="quest-btn" onclick="evaluateGrade()">EVALUATE ▶</button>
+    </div>
+    <div id="output" class="result-box"></div>
+  </div>
+
+  <div class="back-link">
+    <a href="index.html">◀ RETURN TO HOME</a>
+  </div>
+
+  <script src="if.js"></script>
+  <script>
+    // Fallback implementations if if.js is missing
+    if (typeof checkAge === 'undefined') {
+      function checkAge() {
+        const age = parseInt(document.getElementById('age').value);
+        const res = document.getElementById('result');
+        res.className = 'result-box';
+        if (isNaN(age) || age <= 0) {
+          res.textContent = '⚠ Please enter a valid age!';
+          res.classList.add('fail');
+        } else if (age >= 18) {
+          res.textContent = '✔ You are ELIGIBLE to vote! 🗳️';
+          res.classList.add('success');
+        } else {
+          res.textContent = `✖ Not yet eligible. Come back in ${18 - age} year(s)!`;
+          res.classList.add('fail');
+        }
+      }
+    }
+
+    if (typeof checkPassword === 'undefined') {
+      function checkPassword() {
+        const pass = document.getElementById('password').value;
+        const msg  = document.getElementById('message');
+        msg.className = 'result-box';
+        if (pass === '1234' || pass === 'sofia') {
+          msg.textContent = '✔ ACCESS GRANTED! Welcome back! 🔓';
+          msg.classList.add('success');
+        } else {
+          msg.textContent = '✖ WRONG PASSWORD! Try again. 🔒';
+          msg.classList.add('fail');
+        }
+      }
+    }
+
+    if (typeof evaluateGrade === 'undefined') {
+      function evaluateGrade() {
+        const raw   = document.getElementById('grade').value.trim().toUpperCase();
+        const out   = document.getElementById('output');
+        out.className = 'result-box';
+        const num = parseFloat(raw);
+        let msg = '';
+        if (raw === 'A' || raw === 'A+' || (!isNaN(num) && num >= 90)) {
+          msg = '🏆 EXCELLENT! Outstanding performance!';
+          out.classList.add('success');
+        } else if (raw === 'B' || (!isNaN(num) && num >= 80)) {
+          msg = '⭐ VERY GOOD! Keep it up!';
+          out.classList.add('success');
+        } else if (raw === 'C' || (!isNaN(num) && num >= 75)) {
+          msg = '👍 GOOD! Room to improve.';
+          out.classList.add('info');
+        } else if (raw === 'D' || (!isNaN(num) && num >= 60)) {
+          msg = '📖 Passing. Study harder next time!';
+          out.classList.add('info');
+        } else if (!isNaN(num) || raw === 'F') {
+          msg = '❌ FAILED. Do not give up — keep practicing!';
+          out.classList.add('fail');
+        } else {
+          msg = '⚠ Enter a letter grade (A–F) or a number.';
+          out.classList.add('fail');
+        }
+        out.textContent = msg;
+      }
+    }
+
+    // Enter key support
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const active = document.activeElement;
+        if (active.id === 'age')      checkAge();
+        if (active.id === 'password') checkPassword();
+        if (active.id === 'grade')    evaluateGrade();
+      }
+    });
+  </script>
+
+</body>
 </html>
